@@ -7,7 +7,7 @@ using UnityEngine.UI;
 /// You also need a WriteHandler to specify the Text UI element to write to.
 /// Write() will write some text with a pause at the end.
 /// </summary>
-public class ScarConversation : MyFluentDialogue
+public class WizardConversation : MyFluentDialogue
 {
     public TextMeshProUGUI OtherTextElement;
 
@@ -21,23 +21,28 @@ public class ScarConversation : MyFluentDialogue
     {
         return
             Show() *
-            Write(0, "Hello? I’m glad you’re awake. We wandered a bit too far away from home and I’m not sure we can get there in time for Halloween dinner. Do you think you could get us back?") *
+            Write(0, "(They look like they’re feeling down)") *
 
             Options
             (
-                Option("Sure thing!") *
-                    Write(0.5f, "Really? I just don’t know if we will make it…") *
+                Option("What’s wrong?") *
+                    Write(0.5f, "Its almost Halloween, and I barely feel like casting spells anymore. It just hasn’t been fun lately.") *
                     
                     Options
                     (
-                        Option("Let me cheer you up (Start card game)") *
+                        Option("Let me try to help (start card game)") *
                         Write(0.5f, "(Did you win)") *
 
                         Options
                         (
                             
                             Option("Yes") *
-                                End() *
+                                Write(0, "That was so fun! Its been a while since I’ve cast spells on someone else. Can I go with you for this Halloween?") *
+                                Options
+                                (
+                                     Option("Let's go") *
+                                        End() 
+                                ) *
 
                             Option("No") *
                                 End()
