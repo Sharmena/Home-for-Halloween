@@ -1,13 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+[System.Serializable]
 
 public class Card : MonoBehaviour
 {
 	public bool hasBeenPlayed;
 	public int handIndex;
 
-	GameManager gm;
+    GameManager gm;
 
 	private Animator anim;
 	private Animator camAnim;
@@ -15,12 +17,29 @@ public class Card : MonoBehaviour
 	public GameObject effect;
 	public GameObject hollowCircle;
 
-	private void Start()
-	{
-		gm = FindObjectOfType<GameManager>();
+	public int id;
+	public string cardName;
+	public int cost;
+	public int power;
+	public string cardDescription;
+
+	void Start()
+    {
+        gm = FindObjectOfType<GameManager>();
 		anim = GetComponent<Animator>();
 		camAnim = Camera.main.GetComponent<Animator>();
+    }
+
+	public Card(int Id, string CardName, int Cost, int Power, string cardDescriptionText)
+	{
+		id = Id;
+		cardName = CardName;
+		cost = Cost;
+		power = Power;
+		cardDescription = cardDescriptionText;
 	}
+
+	
 	private void OnMouseDown()
 	{
 		if (!hasBeenPlayed)
@@ -45,7 +64,6 @@ public class Card : MonoBehaviour
 		gm.discardPile.Add(this);
 		gameObject.SetActive(false);
 	}
-
-
-
+	
+	
 }

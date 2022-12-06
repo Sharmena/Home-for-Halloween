@@ -152,7 +152,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &63325191
 GameObject:
@@ -188,7 +188,7 @@ Transform:
   - {fileID: 529825870}
   - {fileID: 363407881}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &299670621
 GameObject:
@@ -317,8 +317,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hasBeenPlayed: 0
   handIndex: 0
-  effect: {fileID: 3757043119740318057, guid: 2d563df92650c4c45bfab8ac41590b76, type: 3}
-  hollowCircle: {fileID: 6307824639786034265, guid: c4be0973762ae534b9c0805fdc772559, type: 3}
+  effect: {fileID: 0}
+  hollowCircle: {fileID: 0}
+  id: 0
+  cardName: 
+  cost: 0
+  power: 0
+  cardDescription: 
 --- !u!95 &299670626
 Animator:
   serializedVersion: 4
@@ -339,67 +344,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!1 &301529595
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 301529597}
-  - component: {fileID: 301529596}
-  m_Layer: 0
-  m_Name: GameManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &301529596
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 301529595}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1859a3db9b398e04c8ea2087206af6ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  deck:
-  - {fileID: 1120747072}
-  - {fileID: 917842014}
-  - {fileID: 299670625}
-  - {fileID: 1950949924}
-  - {fileID: 460192816}
-  - {fileID: 1636358344}
-  deckSizeText: {fileID: 1504709009}
-  cardSlots:
-  - {fileID: 1098521602}
-  - {fileID: 835979014}
-  - {fileID: 1022602353}
-  - {fileID: 529825870}
-  - {fileID: 363407881}
-  availableCardSlots: 0101010101
-  discardPile: []
-  discardPileSizeText: {fileID: 1874373382}
---- !u!4 &301529597
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 301529595}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &363407880
 GameObject:
   m_ObjectHideFlags: 0
@@ -558,8 +502,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hasBeenPlayed: 0
   handIndex: 0
-  effect: {fileID: 3757043119740318057, guid: 2d563df92650c4c45bfab8ac41590b76, type: 3}
-  hollowCircle: {fileID: 6307824639786034265, guid: c4be0973762ae534b9c0805fdc772559, type: 3}
+  effect: {fileID: 0}
+  hollowCircle: {fileID: 0}
+  id: 0
+  cardName: 
+  cost: 0
+  power: 0
+  cardDescription: 
 --- !u!95 &460192817
 Animator:
   serializedVersion: 4
@@ -707,6 +656,50 @@ Transform:
   m_Father: {fileID: 63325192}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &713677801
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 713677802}
+  - component: {fileID: 713677803}
+  m_Layer: 0
+  m_Name: CardDataBase
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &713677802
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 713677801}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &713677803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 713677801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49dd450d2b7f04b4ab54abb511482beb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &761915724
 GameObject:
   m_ObjectHideFlags: 0
@@ -899,7 +892,7 @@ Transform:
   - {fileID: 460192813}
   - {fileID: 1636358341}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &835979013
 GameObject:
@@ -943,7 +936,6 @@ GameObject:
   - component: {fileID: 917842011}
   - component: {fileID: 917842012}
   - component: {fileID: 917842013}
-  - component: {fileID: 917842014}
   - component: {fileID: 917842015}
   m_Layer: 0
   m_Name: Cheer (1)
@@ -1045,22 +1037,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.75, y: 5.23}
   m_EdgeRadius: 0
---- !u!114 &917842014
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 917842010}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e45c459cb8aa00428455a68f7b570ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hasBeenPlayed: 0
-  handIndex: 0
-  effect: {fileID: 3757043119740318057, guid: 2d563df92650c4c45bfab8ac41590b76, type: 3}
-  hollowCircle: {fileID: 6307824639786034265, guid: c4be0973762ae534b9c0805fdc772559, type: 3}
 --- !u!95 &917842015
 Animator:
   serializedVersion: 4
@@ -1165,7 +1141,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 301529596}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: Shuffle
         m_Mode: 1
@@ -1308,8 +1284,8 @@ GameObject:
   - component: {fileID: 1120747069}
   - component: {fileID: 1120747070}
   - component: {fileID: 1120747071}
-  - component: {fileID: 1120747072}
   - component: {fileID: 1120747073}
+  - component: {fileID: 1120747074}
   m_Layer: 0
   m_Name: Cheer
   m_TagString: Untagged
@@ -1410,22 +1386,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.75, y: 5.23}
   m_EdgeRadius: 0
---- !u!114 &1120747072
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1120747068}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e45c459cb8aa00428455a68f7b570ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hasBeenPlayed: 0
-  handIndex: 0
-  effect: {fileID: 3757043119740318057, guid: 2d563df92650c4c45bfab8ac41590b76, type: 3}
-  hollowCircle: {fileID: 6307824639786034265, guid: c4be0973762ae534b9c0805fdc772559, type: 3}
 --- !u!95 &1120747073
 Animator:
   serializedVersion: 4
@@ -1446,6 +1406,27 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1120747074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1120747068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e45c459cb8aa00428455a68f7b570ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hasBeenPlayed: 0
+  handIndex: 0
+  effect: {fileID: 0}
+  hollowCircle: {fileID: 0}
+  id: 0
+  cardName: Cheer
+  cost: 1
+  power: 6
+  cardDescription: 
 --- !u!1 &1363141673
 GameObject:
   m_ObjectHideFlags: 0
@@ -1530,7 +1511,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 301529596}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: DrawCard
         m_Mode: 1
@@ -2009,8 +1990,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hasBeenPlayed: 0
   handIndex: 0
-  effect: {fileID: 3757043119740318057, guid: 2d563df92650c4c45bfab8ac41590b76, type: 3}
-  hollowCircle: {fileID: 6307824639786034265, guid: c4be0973762ae534b9c0805fdc772559, type: 3}
+  effect: {fileID: 0}
+  hollowCircle: {fileID: 0}
+  id: 0
+  cardName: 
+  cost: 0
+  power: 0
+  cardDescription: 
 --- !u!95 &1636358345
 Animator:
   serializedVersion: 4
@@ -2372,8 +2358,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hasBeenPlayed: 0
   handIndex: 0
-  effect: {fileID: 3757043119740318057, guid: 2d563df92650c4c45bfab8ac41590b76, type: 3}
-  hollowCircle: {fileID: 6307824639786034265, guid: c4be0973762ae534b9c0805fdc772559, type: 3}
+  effect: {fileID: 0}
+  hollowCircle: {fileID: 0}
+  id: 0
+  cardName: 
+  cost: 0
+  power: 0
+  cardDescription: 
 --- !u!95 &1950949925
 Animator:
   serializedVersion: 4
