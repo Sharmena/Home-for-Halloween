@@ -10,11 +10,21 @@ public class TurnSystem : MonoBehaviour
     public int opponentTurn;
     public Text turnText;
     public int maxMana;
+    public int totalAttack;
+    public int totalDefend;
 
     public int currentMana;
 
     public GameObject endTurnButton;
     public AICards AICards;
+    
+    public Image SEBarImage;
+  
+    public Sprite SEBar3;
+	public Sprite SEBar2;
+    public Sprite SEBar1;
+    public Sprite SEBar0;
+
 
 
 
@@ -28,6 +38,9 @@ public class TurnSystem : MonoBehaviour
        maxMana = 3;
        currentMana = 3; 
        AICards = FindObjectOfType<AICards>();
+
+
+		
     }
 
     // Update is called once per frame
@@ -52,6 +65,33 @@ public class TurnSystem : MonoBehaviour
         yourTurn +=1;
         endTurnButton.SetActive(true);
         currentMana = 3;
+        updateSEBar();
+    }
+
+    public void updateSEBar() {
+        
+        switch (currentMana) {
+            case 0:
+                SEBarImage.sprite = SEBar0;
+                Debug.Log("there is" + currentMana + "mana");
+                break;
+            case 1:
+                SEBarImage.sprite = SEBar1;
+
+                Debug.Log("there is" + currentMana + "mana");
+                break;
+
+            case 2:
+                SEBarImage.sprite = SEBar2;
+ 
+                Debug.Log("there is" + currentMana + "mana");
+                break;
+
+            case 3:
+                SEBarImage.sprite = SEBar3;
+
+                break;
+        }
     }
 
 }
