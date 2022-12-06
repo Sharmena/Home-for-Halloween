@@ -9,7 +9,6 @@ public class TurnSystem : MonoBehaviour
     public int yourTurn;
     public int opponentTurn;
     public Text turnText;
-
     public int maxMana;
     public int currentMana;
 
@@ -37,6 +36,7 @@ public class TurnSystem : MonoBehaviour
     public void EndYourTurn(){
         isYourTurn = false;
         opponentTurn +=1;
+       
     }
 
     public void EndOpponentTurn() {
