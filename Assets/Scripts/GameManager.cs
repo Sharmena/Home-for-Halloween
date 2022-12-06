@@ -58,12 +58,16 @@ public class GameManager : MonoBehaviour
 		}
 	}
 
-	public void moveToDiscard() {
-	
-		foreach(Card card in deck) {
-			card.MoveToDiscardPile();
+	/* public void MoveToDiscardPile()
+	{
+		foreach (Card randomCard in deck) {
+			if (hasBeenPlayed == true) {
+		//Instantiate(effect, transform.position, Quaternion.identity);
+		discardPile.Add(randomCard);
+		randomCard.SetActive(false);
+			}
 		}
-	}	
+	} */
 
 	private void Update()
 	{

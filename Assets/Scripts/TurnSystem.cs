@@ -10,7 +10,10 @@ public class TurnSystem : MonoBehaviour
     public int opponentTurn;
     public Text turnText;
     public int maxMana;
+
     public int currentMana;
+
+    public GameObject endTurnButton;
 
 
 
@@ -36,13 +39,14 @@ public class TurnSystem : MonoBehaviour
     public void EndYourTurn(){
         isYourTurn = false;
         opponentTurn +=1;
+        endTurnButton.SetActive(false);
        
     }
 
     public void EndOpponentTurn() {
         isYourTurn = true;
         yourTurn +=1;
-
+        endTurnButton.SetActive(true);
         currentMana = 3;
     }
 
