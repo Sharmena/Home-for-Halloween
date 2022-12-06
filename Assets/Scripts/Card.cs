@@ -33,19 +33,21 @@ public class Card : MonoBehaviour
 			transform.position += Vector3.up * 3f;
 			hasBeenPlayed = true;
 			gm.availableCardSlots[handIndex] = true;
-			Invoke("MoveToDiscardPile", 2f);
+			//Invoke("MoveToDiscardPile", 2f);
 
 			
 		}
 	}
 
-	void MoveToDiscardPile()
+	public void MoveToDiscardPile()
 	{
-		Instantiate(effect, transform.position, Quaternion.identity);
-		gm.discardPile.Add(this);
-		gameObject.SetActive(false);
-	}
-
+		 
+		if (hasBeenPlayed == true) {
+			//Instantiate(effect, transform.position, Quaternion.identity);
+			gm.discardPile.Add(this);
+			gameObject.SetActive(false);
+		   } 
+		}
 
 
 }

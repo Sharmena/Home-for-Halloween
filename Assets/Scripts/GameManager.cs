@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
 
 	public List<Card> discardPile;
 	public TextMeshProUGUI discardPileSizeText;
+	public List<Card> allcards;
 
 	private Animator camAnim;
 
@@ -56,6 +57,13 @@ public class GameManager : MonoBehaviour
 			discardPile.Clear();
 		}
 	}
+
+	public void moveToDiscard() {
+	
+		foreach(Card card in deck) {
+			card.MoveToDiscardPile();
+		}
+	}	
 
 	private void Update()
 	{
