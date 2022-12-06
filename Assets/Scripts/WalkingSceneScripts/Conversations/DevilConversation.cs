@@ -10,11 +10,18 @@ using UnityEngine.UI;
 public class DevilConversation : MyFluentDialogue
 {
     public TextMeshProUGUI OtherTextElement;
+    public bool defeated;
 
     public override void OnFinish()
     {
         OtherTextElement.text = "";
         base.OnFinish();
+    }
+
+    private void defeat()
+    {
+
+        defeated = true;
     }
 
     public override FluentNode Create()
@@ -36,6 +43,7 @@ public class DevilConversation : MyFluentDialogue
                         (
                             Option("Yes") *
                                 Write(0.5f, "I’ll get you next time! Let me follow to see new ghosts I can prank with what you taught me.") *
+                                Do(() => defeat()) *
                                 End() *
 
                             Option("No") *
@@ -54,6 +62,7 @@ public class DevilConversation : MyFluentDialogue
                         (
                             Option("Yes") *
                                 Write(0.5f, "Thanks! I’ll follow to see what else you can do.") *
+                                Do(() => defeat()) *
                                 End() *
 
                             Option("No") *

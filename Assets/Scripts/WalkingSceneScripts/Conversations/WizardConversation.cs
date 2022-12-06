@@ -10,11 +10,17 @@ using UnityEngine.UI;
 public class WizardConversation : MyFluentDialogue
 {
     public TextMeshProUGUI OtherTextElement;
+    public bool defeated;
 
     public override void OnFinish()
     {
         OtherTextElement.text = "";
         base.OnFinish();
+    }
+
+    private void defeat()
+    {
+        defeated = true;
     }
 
     public override FluentNode Create()
@@ -41,6 +47,7 @@ public class WizardConversation : MyFluentDialogue
                                 Options
                                 (
                                      Option("Let's go") *
+                                     Do(() => defeat()) *
                                         End() 
                                 ) *
 

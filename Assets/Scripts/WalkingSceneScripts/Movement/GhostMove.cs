@@ -8,12 +8,14 @@ public class GhostMove : MonoBehaviour
     public float speed;
     private float x;
     public float playerInput;
+    public GameObject ghost;
     public bool defeated;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        defeated = false;
+        defeated = ghost.GetComponent<bool>();
     }
 
     // Update is called once per frame

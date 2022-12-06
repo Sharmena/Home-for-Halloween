@@ -10,11 +10,17 @@ using UnityEngine.UI;
 public class ScarConversation : MyFluentDialogue
 {
     public TextMeshProUGUI OtherTextElement;
+    public bool defeated;
 
     public override void OnFinish()
     {
         OtherTextElement.text = "";
         base.OnFinish();
+    }
+
+    private void defeat()
+    {
+        defeated = true;
     }
 
     public override FluentNode Create()
@@ -37,6 +43,7 @@ public class ScarConversation : MyFluentDialogue
                         (
                             
                             Option("Yes") *
+                            Do(() => defeat()) *
                                 End() *
 
                             Option("No") *

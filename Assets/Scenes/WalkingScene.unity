@@ -735,6 +735,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OtherTextElement: {fileID: 433781988}
+  defeated: 0
 --- !u!1 &258296796
 GameObject:
   m_ObjectHideFlags: 0
@@ -944,8 +945,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c21c4d6f7e961e246bcddfa6ddcfba00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: -0.5
+  speed: -1
   playerInput: 0
+  ghost: {fileID: 2124117297}
   defeated: 0
 --- !u!1 &430569151
 GameObject:
@@ -2955,8 +2957,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c21c4d6f7e961e246bcddfa6ddcfba00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: -0.5
+  speed: -1
   playerInput: 0
+  ghost: {fileID: 250209851}
   defeated: 0
 --- !u!1 &914480527
 GameObject:
@@ -3429,8 +3432,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c21c4d6f7e961e246bcddfa6ddcfba00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: -0.5
+  speed: -1
   playerInput: 0
+  ghost: {fileID: 1804689261}
   defeated: 0
 --- !u!1 &1002693565
 GameObject:
@@ -5059,8 +5063,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c21c4d6f7e961e246bcddfa6ddcfba00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: -0.5
+  speed: -1
   playerInput: 0
+  ghost: {fileID: 1789015907}
   defeated: 0
 --- !u!1 &1466912426
 GameObject:
@@ -5779,6 +5784,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OtherTextElement: {fileID: 433781988}
+  defeated: 0
 --- !u!114 &1789015910
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6278,6 +6284,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OtherTextElement: {fileID: 433781988}
+  defeated: 0
 --- !u!1 &1805974318
 GameObject:
   m_ObjectHideFlags: 0
