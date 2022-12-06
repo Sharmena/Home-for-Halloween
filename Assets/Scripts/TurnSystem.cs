@@ -14,6 +14,7 @@ public class TurnSystem : MonoBehaviour
     public int currentMana;
 
     public GameObject endTurnButton;
+    public AICards AICards;
 
 
 
@@ -26,6 +27,7 @@ public class TurnSystem : MonoBehaviour
 
        maxMana = 3;
        currentMana = 3; 
+       AICards = FindObjectOfType<AICards>();
     }
 
     // Update is called once per frame
@@ -40,6 +42,8 @@ public class TurnSystem : MonoBehaviour
         isYourTurn = false;
         opponentTurn +=1;
         endTurnButton.SetActive(false);
+        AICards.pickMove();
+        Invoke(nameof(EndOpponentTurn), 2);
        
     }
 

@@ -8,6 +8,8 @@ public class Card : MonoBehaviour
 {
 	public bool hasBeenPlayed;
 	public int handIndex;
+	public int totalAttack;
+	public int totalDefend;
 
     GameManager gm;
 	TurnSystem TurnSystem;
@@ -30,6 +32,8 @@ public class Card : MonoBehaviour
 		anim = GetComponent<Animator>();
 		camAnim = Camera.main.GetComponent<Animator>();
 		TurnSystem = FindObjectOfType<TurnSystem>();
+		totalAttack = 0;
+		totalDefend = 0;
     }
 
 	public Card(int Id, string CardName, int Cost, int Power, string cardDescriptionText)
@@ -56,6 +60,8 @@ public class Card : MonoBehaviour
 
 			transform.position += Vector3.up * 3f;
 			hasBeenPlayed = true;
+			totalAttack = totalAttack + this.power;
+			Debug.Log("The value is" + totalAttack);
 			gm.availableCardSlots[handIndex] = true;
 			Invoke("MoveToDiscardPile", 2f);
 			}
@@ -69,6 +75,6 @@ public class Card : MonoBehaviour
 		gameObject.SetActive(false);
 	  
 	}
-	
+
 	
 }
