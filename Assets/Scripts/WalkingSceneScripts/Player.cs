@@ -22,12 +22,17 @@ public class Player : MonoBehaviour
         if (!CanMove)
             return;
 
-        if (Input.GetKeyDown(KeyCode.E))
+        /*if (Input.GetKeyDown(KeyCode.E))
         {
             FluentManager.Instance.ExecuteClosestAction(gameObject);
-        }
+        } */
 
         transform.position += new Vector3(-Input.GetAxis("Horizontal") * Time.deltaTime * MoveSpeed, 0, -Input.GetAxis("Vertical") * Time.deltaTime * MoveSpeed);
 	
 	}
+
+      private void OnTriggerEnter(Collider other)
+    {
+        FluentManager.Instance.ExecuteClosestAction(gameObject);
+    } 
 }

@@ -1,5 +1,6 @@
 using Fluent;
 using TMPro;
+using UnityEngine;
 using UnityEngine.UI;
 
 /// <summary>
@@ -7,14 +8,22 @@ using UnityEngine.UI;
 /// You also need a WriteHandler to specify the Text UI element to write to.
 /// Write() will write some text with a pause at the end.
 /// </summary>
+/// 
+
 public class CowboyConversation : MyFluentDialogue
 {
+    public bool defeated;
     public TextMeshProUGUI OtherTextElement;
 
     public override void OnFinish()
     {
         OtherTextElement.text = "";
         base.OnFinish();
+    }
+
+    private void defeat()
+    {
+        defeated = true;
     }
 
     public override FluentNode Create()
@@ -38,6 +47,8 @@ public class CowboyConversation : MyFluentDialogue
                             
                             Option("Yes") *
                                 Write(0, "That sounds so fun, let’s giddy up.") *
+                                Do (() => defeat() ) *
+
                                 End() *
 
                             Option("No") *

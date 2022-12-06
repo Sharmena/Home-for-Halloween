@@ -8,9 +8,9 @@ public class MoveBackground : MonoBehaviour {
 
 	public float speed;
 	private float x;
+	public float playerInput;
 	public float PontoDeDestino;
 	public float PontoOriginal;
-	public float playerInput;
 
 
 
@@ -25,15 +25,16 @@ public class MoveBackground : MonoBehaviour {
 
 		playerInput = Input.GetAxis("Horizontal");
 
-		x = transform.position.x;
-		x += speed * Time.deltaTime * playerInput;
-		transform.position = new Vector3 (x, transform.position.y, transform.position.z);
-
+		if (Player.Instance.CanMove == true)
+		{
+			x = transform.position.x;
+			x += speed * Time.deltaTime * playerInput;
+			transform.position = new Vector3(x, transform.position.y, transform.position.z);
+		}
 
 
 		if (x <= PontoDeDestino){
 
-			Debug.Log ("hhhh");
 			x = PontoOriginal;
 			transform.position = new Vector3 (x, transform.position.y, transform.position.z);
 		}
