@@ -1,6 +1,7 @@
 using Fluent;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// This example introduces writing text to the dialog.
@@ -18,6 +19,10 @@ public class ScarConversation : MyFluentDialogue
         base.OnFinish();
     }
 
+     private void startBattle() {
+        SceneManager.LoadScene(sceneName:"Deck System");
+    }
+
     private void defeat()
     {
         defeated = true;
@@ -27,17 +32,19 @@ public class ScarConversation : MyFluentDialogue
     {
         return
             Show() *
-            Write(0, "Hello? I’m glad you’re awake. We wandered a bit too far away from home and I’m not sure we can get there in time for Halloween dinner. Do you think you could get us back?") *
+            Write(0, "Hello? Iï¿½m glad youï¿½re awake. We wandered a bit too far away from home and Iï¿½m not sure we can get there in time for Halloween dinner. Do you think you could get us back?") *
 
             Options
             (
                 Option("Sure thing!") *
-                    Write(0.5f, "Really? I just don’t know if we will make it…") *
+                    Write(0.5f, "Really? I just donï¿½t know if we will make itï¿½") *
                     
                     Options
                     (
                         Option("Let me cheer you up (Start card game)") *
+                        Do(() => startBattle()) *
                         Write(0.5f, "(Did you win)") *
+                        
 
                         Options
                         (

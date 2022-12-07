@@ -17,38 +17,55 @@ public class GameManager : MonoBehaviour
 	public List<Card> allcards;
 
 	private Animator camAnim;
+	public int numCardsInHand;
+	public int maxCardsInHand;
+	public Card randomCard;
 
 	private void Start()
 	{
 		camAnim = Camera.main.GetComponent<Animator>();
+		maxCardsInHand = 5;
+		numCardsInHand = 0;
+		
 	}
 
 	
 	
 	public void DrawCard()
 	{
+		 
 		if (deck.Count >= 1)
 		{
-			for(int j = 0; j < cardSlots.Length; j++) {
+			
 			camAnim.SetTrigger("shake");
-
 			Card randomCard = deck[Random.Range(0, deck.Count)];
+			
 			for (int i = 0; i < availableCardSlots.Length; i++)
 			{
+				
 				if (availableCardSlots[i] == true)
 				{
+					Debug.Log("deck count " + deck.Count);
 					randomCard.gameObject.SetActive(true);
 					randomCard.handIndex = i;
 					randomCard.transform.position = cardSlots[i].position;
 					randomCard.hasBeenPlayed = false;
 					deck.Remove(randomCard);
 					availableCardSlots[i] = false;
+					numCardsInHand++;
 					return;
 				}
+			
 			}
-			}
+			
 		} 
+	}
 	
+	public void DrawMaxCards() {
+		
+		for(int i = numCardsInHand; i < maxCardsInHand; i++) {
+			DrawCard();
+		}
 	}
 	
 
