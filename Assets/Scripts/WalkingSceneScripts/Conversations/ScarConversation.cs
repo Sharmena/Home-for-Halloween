@@ -32,12 +32,12 @@ public class ScarConversation : MyFluentDialogue
     {
         return
             Show() *
-            Write(0, "Hello? I�m glad you�re awake. We wandered a bit too far away from home and I�m not sure we can get there in time for Halloween dinner. Do you think you could get us back?") *
+            Write(0, "Hello? I'm glad you're awake. We wandered a bit too far away from home and I'm not sure we can get there in time for Halloween dinner. Do you think you could get us back?") *
 
             Options
             (
                 Option("Sure thing!") *
-                    Write(0.5f, "Really? I just don�t know if we will make it�") *
+                    Write(0.5f, "Really? I just don't know if we will make it") *
                     
                     Options
                     (
@@ -55,6 +55,7 @@ public class ScarConversation : MyFluentDialogue
 
                             Option("No") *
                                 End()
+                             
 
                         ) 
 

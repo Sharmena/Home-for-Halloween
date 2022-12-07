@@ -8,11 +8,6 @@ public class Player : MonoBehaviour
     public bool CanMove = true;
     public static Player Instance;
 
-    public bool ScarDefeat;
-    public bool WizardDefeat;
-    public bool DevilDefeat;
-    public bool CowboyDefeat;
-
     void Awake()
     {
         Instance = this;
