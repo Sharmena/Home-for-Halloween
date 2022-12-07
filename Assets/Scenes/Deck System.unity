@@ -505,7 +505,6 @@ MonoBehaviour:
   - {fileID: 1950949924}
   - {fileID: 460192816}
   - {fileID: 1636358344}
-  AICards: {fileID: 0}
   deckSizeText: {fileID: 1504709009}
   tutorialText: {fileID: 1978776717}
   cardSlots:
@@ -514,7 +513,6 @@ MonoBehaviour:
   - {fileID: 1022602353}
   - {fileID: 529825870}
   - {fileID: 363407881}
-  endTutorialButton: {fileID: 1011916630}
   availableCardSlots: 0101010101
   discardPile: []
   discardPileSizeText: {fileID: 1874373382}
@@ -604,7 +602,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 1e418ca9c14167546b6357491fc91b5f, type: 3}
+    m_Font: {fileID: 12800000, guid: 99ba29925104b4a958aa8102bc8cead9, type: 3}
     m_FontSize: 40
     m_FontStyle: 1
     m_BestFit: 0
@@ -703,10 +701,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: / 30
+  m_text: /30
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 6b9cd1a9da205c64ca24894a0ad1b652, type: 2}
-  m_sharedMaterial: {fileID: 5648841424417533313, guid: 6b9cd1a9da205c64ca24894a0ad1b652, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 96d8e6ed2edf8446dbe2478f7dfe8ad5, type: 2}
+  m_sharedMaterial: {fileID: 6551269724603923221, guid: 96d8e6ed2edf8446dbe2478f7dfe8ad5, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1166,8 +1164,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: End Turn
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 96d8e6ed2edf8446dbe2478f7dfe8ad5, type: 2}
+  m_sharedMaterial: {fileID: 6551269724603923221, guid: 96d8e6ed2edf8446dbe2478f7dfe8ad5, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2623,8 +2621,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 40
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 6b9cd1a9da205c64ca24894a0ad1b652, type: 2}
-  m_sharedMaterial: {fileID: 5648841424417533313, guid: 6b9cd1a9da205c64ca24894a0ad1b652, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 96d8e6ed2edf8446dbe2478f7dfe8ad5, type: 2}
+  m_sharedMaterial: {fileID: 6551269724603923221, guid: 96d8e6ed2edf8446dbe2478f7dfe8ad5, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2756,10 +2754,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 30
+  m_text: '30 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 6b9cd1a9da205c64ca24894a0ad1b652, type: 2}
-  m_sharedMaterial: {fileID: 5648841424417533313, guid: 6b9cd1a9da205c64ca24894a0ad1b652, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 96d8e6ed2edf8446dbe2478f7dfe8ad5, type: 2}
+  m_sharedMaterial: {fileID: 6551269724603923221, guid: 96d8e6ed2edf8446dbe2478f7dfe8ad5, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2893,8 +2891,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Continue
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 96d8e6ed2edf8446dbe2478f7dfe8ad5, type: 2}
+  m_sharedMaterial: {fileID: 6551269724603923221, guid: 96d8e6ed2edf8446dbe2478f7dfe8ad5, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3757,10 +3755,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: / 40
+  m_text: /40
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 6b9cd1a9da205c64ca24894a0ad1b652, type: 2}
-  m_sharedMaterial: {fileID: 5648841424417533313, guid: 6b9cd1a9da205c64ca24894a0ad1b652, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 96d8e6ed2edf8446dbe2478f7dfe8ad5, type: 2}
+  m_sharedMaterial: {fileID: 6551269724603923221, guid: 96d8e6ed2edf8446dbe2478f7dfe8ad5, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4138,8 +4136,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: this is a test
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 96d8e6ed2edf8446dbe2478f7dfe8ad5, type: 2}
+  m_sharedMaterial: {fileID: 6551269724603923221, guid: 96d8e6ed2edf8446dbe2478f7dfe8ad5, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4163,8 +4161,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -4448,8 +4446,8 @@ MonoBehaviour:
   m_text: The enemy uses "         ". Counter their move by selecting cards. Your
     blue SE bar on the left determines how many cards you may select.
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 96d8e6ed2edf8446dbe2478f7dfe8ad5, type: 2}
+  m_sharedMaterial: {fileID: 6551269724603923221, guid: 96d8e6ed2edf8446dbe2478f7dfe8ad5, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4473,8 +4471,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 40
-  m_fontSizeBase: 40
+  m_fontSize: 35
+  m_fontSizeBase: 35
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

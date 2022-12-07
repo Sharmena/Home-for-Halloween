@@ -11,6 +11,7 @@ public class HPValues : MonoBehaviour
     public int enemyMaxHP;
     public TextMeshProUGUI playerHPNum;
     public TextMeshProUGUI enemyHPNum;
+    public TextMeshProUGUI vulnerableText;
     TurnSystem TurnSystem;
 
 
@@ -20,11 +21,15 @@ public class HPValues : MonoBehaviour
      playerHP = 30;
      enemyHP = 40;
      TurnSystem = FindObjectOfType<TurnSystem>();
+     vulnerableText.enabled = false;
     }
 
-    public void calculateBash() {
+    public void calculateBash() {   //calculates damage inflicted to player and enemy when enemy bashes
         enemyHP -= TurnSystem.totalAttack;
         int playerDamageRec = 10;
+        if (TurnSystem.isVulnerable == true) {
+            playerDamageRec = (int)(playerDamageRec * 1.5);
+        }
         if (TurnSystem.totalDefend > 0) {
            playerDamageRec -= TurnSystem.totalDefend;
         }
@@ -34,13 +39,17 @@ public class HPValues : MonoBehaviour
             }
 
                 enemyHPNum.text = enemyHP.ToString();
+                TurnSystem.isVulnerable = false;
+                vulnerableText.enabled = false;
     }
 
-    public void calculateDefend() {
+    public void calculateDefend() { // //calculates damage inflicted to player and enemy when enemy defends
         if (TurnSystem.totalAttack > 5) {
         enemyHP -= TurnSystem.totalAttack - 5;
             enemyHPNum.text = enemyHP.ToString();
         }
+            TurnSystem.isVulnerable = false;
+            vulnerableText.enabled = false;
             }
         
     

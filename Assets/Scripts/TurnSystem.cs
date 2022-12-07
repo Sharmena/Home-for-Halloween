@@ -7,6 +7,7 @@ using TMPro;
 public class TurnSystem : MonoBehaviour
 {
     public bool isYourTurn;
+    public bool isVulnerable;
     public int yourTurn;
     public int opponentTurn;
     public Text turnText;
@@ -82,9 +83,17 @@ public class TurnSystem : MonoBehaviour
         } else { 
             HPValues.calculateDefend();
         }
+            if(AICards.Bash == true) {
+                isVulnerable = true;
+                HPValues.vulnerableText.enabled = true;
+            }
         AICards.pickMove();
+            if(AICards.Defend == true) {
+                isVulnerable = false;
+                HPValues.vulnerableText.enabled = false;
+            }
         totalAttack = 0;
-        totalDefend = 0;
+        totalDefend = 0;      
         Invoke(nameof(EndOpponentTurn), 2);
        
     }
@@ -95,6 +104,7 @@ public class TurnSystem : MonoBehaviour
         endTurnButton.SetActive(true);
         currentMana = 3;
         updateSEBar();
+        Debug.Log("IS vulernable: " + isVulnerable);
     }
 
     public void updateSEBar() {

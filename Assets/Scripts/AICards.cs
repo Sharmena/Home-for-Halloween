@@ -28,7 +28,7 @@ public class AICards : MonoBehaviour
         switch (randomMove) {
             case "Bash":
             enemyMoveText.color = Color.red;
-            enemyMoveText.text = "Attack: 10HP";
+            enemyMoveText.text = "Attack: 10HP + Vulnerability";
             Defend = false;
             Bash = true;
             
