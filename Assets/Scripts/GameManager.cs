@@ -19,12 +19,14 @@ public class GameManager : MonoBehaviour
 	private Animator camAnim;
 	public int numCardsInHand;
 	public int maxCardsInHand;
+	public Card randomCard;
 
 	private void Start()
 	{
 		camAnim = Camera.main.GetComponent<Animator>();
 		maxCardsInHand = 5;
 		numCardsInHand = 0;
+		
 	}
 
 	
@@ -43,8 +45,7 @@ public class GameManager : MonoBehaviour
 				
 				if (availableCardSlots[i] == true)
 				{
-					Debug.Log("availableCardSlots = " + availableCardSlots);
-					Debug.Log("cardSlots = " + cardSlots);
+					Debug.Log("deck count " + deck.Count);
 					randomCard.gameObject.SetActive(true);
 					randomCard.handIndex = i;
 					randomCard.transform.position = cardSlots[i].position;
