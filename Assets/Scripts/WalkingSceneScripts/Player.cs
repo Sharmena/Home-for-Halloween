@@ -3,10 +3,15 @@ using Fluent;
 
 public class Player : MonoBehaviour 
 {
-    public float MoveSpeed = 2.0f;
+    private float MoveSpeed = 0.0f;
 
     public bool CanMove = true;
     public static Player Instance;
+
+    public bool ScarDefeat;
+    public bool WizardDefeat;
+    public bool DevilDefeat;
+    public bool CowboyDefeat;
 
     void Awake()
     {
@@ -22,10 +27,6 @@ public class Player : MonoBehaviour
         if (!CanMove)
             return;
 
-        /*if (Input.GetKeyDown(KeyCode.E))
-        {
-            FluentManager.Instance.ExecuteClosestAction(gameObject);
-        } */
 
         transform.position += new Vector3(-Input.GetAxis("Horizontal") * Time.deltaTime * MoveSpeed, 0, -Input.GetAxis("Vertical") * Time.deltaTime * MoveSpeed);
 	

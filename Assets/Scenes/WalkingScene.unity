@@ -652,10 +652,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 250209852}
-  - component: {fileID: 250209854}
   - component: {fileID: 250209855}
   - component: {fileID: 250209857}
   - component: {fileID: 250209858}
+  - component: {fileID: 250209859}
   m_Layer: 0
   m_Name: Talk
   m_TagString: Untagged
@@ -671,7 +671,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 250209851}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.68, y: -0.55, z: -0.0030575653}
+  m_LocalPosition: {x: -0.01, y: -0.22, z: -0.0030575653}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -679,19 +679,6 @@ Transform:
   m_Father: {fileID: 882442604}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &250209854
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 250209851}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 2.861168
-  m_Center: {x: -0.8611679, y: 0, z: 0}
 --- !u!114 &250209855
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -736,6 +723,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OtherTextElement: {fileID: 433781988}
   defeated: 0
+--- !u!65 &250209859
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 250209851}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.3380241, y: 1, z: 1}
+  m_Center: {x: -0.66901207, y: 0, z: 0}
 --- !u!1 &258296796
 GameObject:
   m_ObjectHideFlags: 0
@@ -924,12 +924,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 300512927}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.36, y: -0.65, z: 0.0030575653}
+  m_LocalPosition: {x: 14.59, y: -0.65, z: 0.0030575653}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2124117298}
   - {fileID: 463353863}
+  - {fileID: 2124117298}
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1636,7 +1636,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 300512928}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &463353864
 Animator:
@@ -1827,12 +1827,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 511594000}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0, z: -0.0030575653}
+  m_LocalPosition: {x: 0, y: 0, z: -0.0030575653}
   m_LocalScale: {x: 0.25, y: 0.25, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1450107162}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &511594002
 SpriteRenderer:
@@ -4257,8 +4257,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.3999138, y: 1.4199095, z: 1}
-  m_Center: {x: -1.7796164, y: -0.88980806, z: 0}
+  m_Size: {x: 2.4783216, y: 1.4199095, z: 1}
+  m_Center: {x: -1.2404125, y: -0.88980806, z: 0}
 --- !u!33 &1220702994
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -5042,12 +5042,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1450107161}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 13.7, y: -0.65, z: 0.0030575653}
+  m_LocalPosition: {x: 11.06, y: -0.65, z: 0.0030575653}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1789015908}
   - {fileID: 511594001}
+  - {fileID: 1789015908}
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5744,10 +5744,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1789015908}
-  - component: {fileID: 1789015912}
   - component: {fileID: 1789015911}
   - component: {fileID: 1789015910}
   - component: {fileID: 1789015909}
+  - component: {fileID: 1789015912}
   m_Layer: 0
   m_Name: Talk
   m_TagString: Untagged
@@ -5763,13 +5763,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1789015907}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.68, y: -0.55, z: -0.0030575653}
+  m_LocalPosition: {x: -0.5, y: -0.25, z: -0.0030575653}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 451067267}
   m_Father: {fileID: 1450107162}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1789015909
 MonoBehaviour:
@@ -5815,8 +5815,8 @@ MonoBehaviour:
   DialogUI: {fileID: 1725310356}
   OptionItemUI: {fileID: 130918, guid: b84b3e1d0f0702d4da4b7121df5f3421, type: 3}
   OptionsPanel: {fileID: 1447993603}
---- !u!135 &1789015912
-SphereCollider:
+--- !u!65 &1789015912
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -5826,8 +5826,8 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 2.861168
-  m_Center: {x: -0.8611679, y: 0, z: 0}
+  m_Size: {x: 2.338024, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1789539828
 GameObject:
   m_ObjectHideFlags: 0
@@ -6201,10 +6201,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1804689262}
-  - component: {fileID: 1804689266}
   - component: {fileID: 1804689265}
   - component: {fileID: 1804689264}
   - component: {fileID: 1804689267}
+  - component: {fileID: 1804689268}
   m_Layer: 0
   m_Name: Talk
   m_TagString: Untagged
@@ -6220,7 +6220,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1804689261}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.68, y: -0.55, z: -0.0030575653}
+  m_LocalPosition: {x: -0.38, y: -0.35, z: -0.0030575653}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6258,19 +6258,6 @@ MonoBehaviour:
   DialogUI: {fileID: 1725310356}
   OptionItemUI: {fileID: 130918, guid: b84b3e1d0f0702d4da4b7121df5f3421, type: 3}
   OptionsPanel: {fileID: 1447993603}
---- !u!135 &1804689266
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1804689261}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 2.861168
-  m_Center: {x: -0.8611679, y: 0, z: 0}
 --- !u!114 &1804689267
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6285,6 +6272,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OtherTextElement: {fileID: 433781988}
   defeated: 0
+--- !u!65 &1804689268
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1804689261}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.338024, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1805974318
 GameObject:
   m_ObjectHideFlags: 0
@@ -7061,10 +7061,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2124117298}
-  - component: {fileID: 2124117302}
   - component: {fileID: 2124117301}
   - component: {fileID: 2124117300}
   - component: {fileID: 2124117303}
+  - component: {fileID: 2124117304}
   m_Layer: 0
   m_Name: Talk
   m_TagString: Untagged
@@ -7080,13 +7080,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2124117297}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.68, y: -0.55, z: -0.0030575653}
+  m_LocalPosition: {x: -0.66, y: -0.29, z: -0.0030575653}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1769679914}
   m_Father: {fileID: 300512928}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2124117300
 MonoBehaviour:
@@ -7118,19 +7118,6 @@ MonoBehaviour:
   DialogUI: {fileID: 1725310356}
   OptionItemUI: {fileID: 130918, guid: b84b3e1d0f0702d4da4b7121df5f3421, type: 3}
   OptionsPanel: {fileID: 1447993603}
---- !u!135 &2124117302
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2124117297}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 2.861168
-  m_Center: {x: -0.8611679, y: 0, z: 0}
 --- !u!114 &2124117303
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7145,6 +7132,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defeated: 0
   OtherTextElement: {fileID: 433781988}
+--- !u!65 &2124117304
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2124117297}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.338024, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2136161188
 GameObject:
   m_ObjectHideFlags: 0

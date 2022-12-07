@@ -12,6 +12,8 @@ public class GhostMove : MonoBehaviour
     public bool defeated;
 
 
+
+
     // Start is called before the first frame update
     void Start()
     {
