@@ -21,6 +21,8 @@ public class TurnSystem : MonoBehaviour
 
 	public GameObject endTutorialButton;
     public TextMeshProUGUI tutorialText;
+    public TextMeshProUGUI attackValueText;
+    public TextMeshProUGUI blockValueText;
     public GameManager gm;
     public AICards AICards;
     public HPValues HPValues;
@@ -47,6 +49,8 @@ public class TurnSystem : MonoBehaviour
        AICards = FindObjectOfType<AICards>();
        HPValues = FindObjectOfType<HPValues>();
        gm = FindObjectOfType<GameManager>();
+       attackValueText.enabled = true;
+       blockValueText.enabled = false;
        tutorial();
        //gm.DrawCard();
 
@@ -75,10 +79,25 @@ public class TurnSystem : MonoBehaviour
         gm.DrawMaxCards();
 	}
 
+    public void updateActionBox() {
+        attackValueText.text = ("Attacking for: " + totalAttack.ToString() + " HP");
+        blockValueText.text = ("Blocking for: " + totalDefend.ToString() + " HP");
+        attackValueText.enabled = true;
+        blockValueText.enabled = true;
+    }
+
+    public void clearActionBox() {
+        attackValueText.enabled = false;
+        blockValueText.enabled = false;
+        attackValueText.text = ("");
+        blockValueText.text = ("");
+    }
+
     public void EndYourTurn(){
         isYourTurn = false;
         opponentTurn +=1;
         endTurnButton.SetActive(false);
+        clearActionBox();
         if (AICards.Bash == true) {
             HPValues.calculateBash();
         } else { 
