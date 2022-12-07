@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class TurnSystem : MonoBehaviour
 {
@@ -16,6 +17,10 @@ public class TurnSystem : MonoBehaviour
     public int currentMana;
 
     public GameObject endTurnButton;
+
+	public GameObject endTutorialButton;
+    public TextMeshProUGUI tutorialText;
+    public GameManager gm;
     public AICards AICards;
     public HPValues HPValues;
     
@@ -40,6 +45,9 @@ public class TurnSystem : MonoBehaviour
        currentMana = 3; 
        AICards = FindObjectOfType<AICards>();
        HPValues = FindObjectOfType<HPValues>();
+       gm = FindObjectOfType<GameManager>();
+       tutorial();
+       //gm.DrawCard();
 
 
 		
@@ -52,6 +60,18 @@ public class TurnSystem : MonoBehaviour
             turnText.text = "Your Turn";
         } else turnText.text = "Opponent Turn";
     }
+
+    public void tutorial() {
+        endTurnButton.SetActive(false);
+		tutorialText.enabled = true;
+		tutorialText.text = ("The enemy uses " + AICards.enemyMoveText.text + ". " + "Counter their move by selecting cards, then press End Turn. The blue SE bar determines how many cards you can play");
+	}
+
+	public void endTutorial() {
+		tutorialText.enabled = false;
+		endTutorialButton.SetActive(false);
+        endTurnButton.SetActive(true);
+	}
 
     public void EndYourTurn(){
         isYourTurn = false;

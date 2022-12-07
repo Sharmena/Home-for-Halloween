@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
 
 	public List<Card> deck;
 	public TextMeshProUGUI deckSizeText;
-
+	public TextMeshProUGUI tutorialText;
 	public Transform[] cardSlots;
 	public bool[] availableCardSlots;
 
@@ -23,10 +23,13 @@ public class GameManager : MonoBehaviour
 		camAnim = Camera.main.GetComponent<Animator>();
 	}
 
+	
+	
 	public void DrawCard()
 	{
 		if (deck.Count >= 1)
 		{
+			for(int j = 0; j < cardSlots.Length; j++) {
 			camAnim.SetTrigger("shake");
 
 			Card randomCard = deck[Random.Range(0, deck.Count)];
@@ -43,8 +46,11 @@ public class GameManager : MonoBehaviour
 					return;
 				}
 			}
-		}
+			}
+		} 
+	
 	}
+	
 
 	public void Shuffle()
 	{

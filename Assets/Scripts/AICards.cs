@@ -6,7 +6,9 @@ using TMPro;
 public class AICards : MonoBehaviour
 {
     public TextMeshProUGUI enemyMoveText;
+    
     public List<string> enemyMoves;
+    
     public string randomMove;
     public bool Bash;
     public bool Defend;
@@ -18,8 +20,8 @@ public class AICards : MonoBehaviour
        enemyMoves.Add("Bash"); 
        enemyMoves.Add("Defend");
        pickMove();
-    
     }
+    
 
     public void pickMove() {
         string randomMove = enemyMoves[Random.Range(0, enemyMoves.Count)];

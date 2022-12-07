@@ -7,6 +7,8 @@ public class HPValues : MonoBehaviour
 {
     public int playerHP;
     public int enemyHP;
+    public int playerMaxHP;
+    public int enemyMaxHP;
     public TextMeshProUGUI playerHPNum;
     public TextMeshProUGUI enemyHPNum;
     TurnSystem TurnSystem;
@@ -16,7 +18,7 @@ public class HPValues : MonoBehaviour
     void Start()
     {
      playerHP = 30;
-     enemyHP = 30;
+     enemyHP = 40;
      TurnSystem = FindObjectOfType<TurnSystem>();
     }
 

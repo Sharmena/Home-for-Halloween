@@ -52,11 +52,12 @@ public class Card : MonoBehaviour
 	{
 		if (!hasBeenPlayed)
 			if (TurnSystem.isYourTurn == true) 
-			if (TurnSystem.currentMana > 0)
+				if (TurnSystem.currentMana > 0)
+					if(gm.tutorialText.enabled == false)
+		{
 			{
-			{
-			{
-		
+				{
+					{
 			Instantiate(hollowCircle, transform.position, Quaternion.identity);
 			
 			camAnim.SetTrigger("shake");
@@ -66,17 +67,19 @@ public class Card : MonoBehaviour
 			hasBeenPlayed = true;
 			TurnSystem.currentMana -= this.cost;
 			TurnSystem.updateSEBar();
-		if (this.id == 0) {
-			TurnSystem.totalAttack += this.power;
-		}	else {
-			TurnSystem.totalDefend += this.power;
-		}
+				if (this.id == 0) {
+					TurnSystem.totalAttack += this.power;
+					}	else {
+					TurnSystem.totalDefend += this.power;
+						}
 			Debug.Log("Total Attack is" + TurnSystem.totalAttack);
 			Debug.Log("Total Defend is" + TurnSystem.totalDefend);
 			gm.availableCardSlots[handIndex] = true;
 			Invoke("MoveToDiscardPile", 2f);
 			}
 			}
+			}
+			
 		}
 	}
 
