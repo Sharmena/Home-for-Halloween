@@ -17,6 +17,7 @@ public class TurnSystem : MonoBehaviour
 
     public GameObject endTurnButton;
     public AICards AICards;
+    public HPValues HPValues;
     
     public Image SEBarImage;
   
@@ -38,6 +39,7 @@ public class TurnSystem : MonoBehaviour
        maxMana = 3;
        currentMana = 3; 
        AICards = FindObjectOfType<AICards>();
+       HPValues = FindObjectOfType<HPValues>();
 
 
 		
@@ -55,7 +57,14 @@ public class TurnSystem : MonoBehaviour
         isYourTurn = false;
         opponentTurn +=1;
         endTurnButton.SetActive(false);
+        if (AICards.Bash == true) {
+            HPValues.calculateBash();
+        } else { 
+            HPValues.calculateDefend();
+        }
         AICards.pickMove();
+        totalAttack = 0;
+        totalDefend = 0;
         Invoke(nameof(EndOpponentTurn), 2);
        
     }
