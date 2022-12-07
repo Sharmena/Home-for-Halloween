@@ -65,6 +65,7 @@ public class Card : MonoBehaviour
 
 			transform.position += Vector3.up * 3f;
 			hasBeenPlayed = true;
+			gm.numCardsInHand --;
 			TurnSystem.currentMana -= this.cost;
 			TurnSystem.updateSEBar();
 				if (this.id == 0) {

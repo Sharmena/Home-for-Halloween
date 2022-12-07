@@ -65,13 +65,14 @@ public class TurnSystem : MonoBehaviour
     public void tutorial() {
         endTurnButton.SetActive(false);
 		tutorialText.enabled = true;
-		tutorialText.text = ("The enemy uses " + AICards.enemyMoveText.text + ". " + "Counter their move by selecting cards, then press End Turn. The blue SE bar determines how many cards you can play");
+		tutorialText.text = ("The enemy uses " + AICards.enemyMoveText.text + ". " + "Counter their move by selecting cards, then press End Turn. The blue SE bar determines how many cards you can play. <b>Cards are played <i>immediately</i> upon clicking</b> ");
 	}
 
 	public void endTutorial() {
 		tutorialText.enabled = false;
 		endTutorialButton.SetActive(false);
         endTurnButton.SetActive(true);
+        gm.DrawMaxCards();
 	}
 
     public void EndYourTurn(){
@@ -104,6 +105,8 @@ public class TurnSystem : MonoBehaviour
         endTurnButton.SetActive(true);
         currentMana = 3;
         updateSEBar();
+        gm.Shuffle();
+        gm.DrawMaxCards();
         Debug.Log("IS vulernable: " + isVulnerable);
     }
 

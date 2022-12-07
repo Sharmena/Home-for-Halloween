@@ -56,7 +56,11 @@ public class HPValues : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (enemyHP <= 0) {
+            Debug.Log("You win!");
+        } else if (playerHP <= 0) {
+        Debug.Log("You lose :(");
     }
+}
 }
 
