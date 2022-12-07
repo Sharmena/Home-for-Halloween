@@ -596,7 +596,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0.066036224, a: 1}
+  m_Color: {r: 0.0828655, g: 0.9622642, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -642,7 +642,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 18, y: 386}
+  m_AnchoredPosition: {x: -23, y: 367}
   m_SizeDelta: {x: 367.02, y: 112.47}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &436564118
@@ -4254,7 +4254,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Vulnerable!
+  m_text: Vulnerable! Attacks increased by 150%
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 96d8e6ed2edf8446dbe2478f7dfe8ad5, type: 2}
   m_sharedMaterial: {fileID: 6551269724603923221, guid: 96d8e6ed2edf8446dbe2478f7dfe8ad5, type: 2}
@@ -4317,7 +4317,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -54.87245, w: -49.062496}
+  m_margin: {x: 0, y: 0, z: -158.90614, w: -49.062496}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
