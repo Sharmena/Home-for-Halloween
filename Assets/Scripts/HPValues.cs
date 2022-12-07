@@ -12,6 +12,7 @@ public class HPValues : MonoBehaviour
     public TextMeshProUGUI playerHPNum;
     public TextMeshProUGUI enemyHPNum;
     public TextMeshProUGUI vulnerableText;
+    
     TurnSystem TurnSystem;
 
 
@@ -24,6 +25,7 @@ public class HPValues : MonoBehaviour
      vulnerableText.enabled = false;
     }
 
+    
     public void calculateBash() {   //calculates damage inflicted to player and enemy when enemy bashes
         enemyHP -= TurnSystem.totalAttack;
         int playerDamageRec = 10;

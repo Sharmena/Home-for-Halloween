@@ -73,6 +73,7 @@ public class Card : MonoBehaviour
 					}	else {
 					TurnSystem.totalDefend += this.power;
 						}
+			TurnSystem.updateActionBox();	
 			Debug.Log("Total Attack is" + TurnSystem.totalAttack);
 			Debug.Log("Total Defend is" + TurnSystem.totalDefend);
 			gm.availableCardSlots[handIndex] = true;
