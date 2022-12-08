@@ -2,7 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using TMPro;
+
 
 public class TurnSystem : MonoBehaviour
 {
@@ -14,6 +16,10 @@ public class TurnSystem : MonoBehaviour
     public int maxMana;
     public int totalAttack;
     public int totalDefend;
+
+
+    public bool playerHasWon;
+    public bool opponentHasWon;
 
     public int currentMana;
 
@@ -44,12 +50,15 @@ public class TurnSystem : MonoBehaviour
        yourTurn = 1;
        opponentTurn = 0;
 
+       playerHasWon = false;
+       opponentHasWon = false;
+
        maxMana = 3;
        currentMana = 3; 
        AICards = FindObjectOfType<AICards>();
        HPValues = FindObjectOfType<HPValues>();
        gm = FindObjectOfType<GameManager>();
-       attackValueText.enabled = true;
+       attackValueText.enabled = false;
        blockValueText.enabled = false;
        tutorial();
        //gm.DrawCard();
@@ -153,6 +162,16 @@ public class TurnSystem : MonoBehaviour
 
                 break;
         }
+    }
+
+    public void playerWins() { 
+        playerHasWon = true;
+        SceneManager.LoadScene(sceneName:"WalkingScene");
+    }
+
+    public void opponentWins() {
+        opponentHasWon = true;
+        //TBA
     }
 
 }

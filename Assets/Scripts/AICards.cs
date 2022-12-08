@@ -17,12 +17,14 @@ public class AICards : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //add moves to movelist, pick a move
        enemyMoves.Add("Bash"); 
        enemyMoves.Add("Defend");
        pickMove();
     }
     
 
+//randomly picks a move, set enemy move text box, set defend or bash to t/f
     public void pickMove() {
         string randomMove = enemyMoves[Random.Range(0, enemyMoves.Count)];
         switch (randomMove) {

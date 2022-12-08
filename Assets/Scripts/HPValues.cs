@@ -19,6 +19,7 @@ public class HPValues : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //initializes player and enemy HP value
      playerHP = 30;
      enemyHP = 40;
      TurnSystem = FindObjectOfType<TurnSystem>();
@@ -58,9 +59,12 @@ public class HPValues : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (enemyHP <= 0) {
+        //track if someone has won
+        if (enemyHP <= 0) { //if player wins
+            TurnSystem.playerWins();
             Debug.Log("You win!");
-        } else if (playerHP <= 0) {
+        } else if (playerHP <= 0) { //if enemy wins
+        TurnSystem.opponentWins();
         Debug.Log("You lose :(");
     }
 }
