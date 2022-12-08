@@ -9,6 +9,7 @@ public class GhostMove : MonoBehaviour
     private float x;
     public float playerInput;
     public GameObject ghost;
+    public DefeatManager defeatManager;
     public bool defeated;
 
 
@@ -17,7 +18,7 @@ public class GhostMove : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        defeated = ghost.GetComponent<bool>();
+       
     }
 
     // Update is called once per frame
@@ -30,6 +31,23 @@ public class GhostMove : MonoBehaviour
             x = transform.position.x;
             x += speed * Time.deltaTime * playerInput;
             transform.position = new Vector3(x, transform.position.y, transform.position.z);
+        }
+
+        if (this.name == "ScarGhost")
+        {
+            defeated = defeatManager.scarDefeat;
+        }
+        if (this.name == "WizardGhost")
+        {
+            defeated = defeatManager.wizardDefeat;
+        }
+        if (this.name == "DevilGhost")
+        {
+            defeated = defeatManager.devilDefeat;
+        }
+        if (this.name == "CowboyGhost")
+        {
+            defeated = defeatManager.cowboyDefeat;
         }
     }
 }
