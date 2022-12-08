@@ -10,12 +10,17 @@ public class TurnSystem : MonoBehaviour
 {
     public bool isYourTurn;
     public bool isVulnerable;
+    public bool startWithTutorial;
+
     public int yourTurn;
     public int opponentTurn;
     public Text turnText;
     public int maxMana;
     public int totalAttack;
     public int totalDefend;
+
+    public Animator playerAnimation;
+    public Animator opponentAnimation;
 
 
     public bool playerHasWon;
@@ -50,8 +55,13 @@ public class TurnSystem : MonoBehaviour
        yourTurn = 1;
        opponentTurn = 0;
 
+       
+
        playerHasWon = false;
        opponentHasWon = false;
+
+       playerAnimation.enabled = true;
+       opponentAnimation.enabled = false;
 
        maxMana = 3;
        currentMana = 3; 
@@ -60,7 +70,14 @@ public class TurnSystem : MonoBehaviour
        gm = FindObjectOfType<GameManager>();
        attackValueText.enabled = false;
        blockValueText.enabled = false;
-       tutorial();
+
+       if(startWithTutorial == true) {
+        tutorial();
+       } else {
+        endTutorial();
+       }
+       
+       
        //gm.DrawCard();
 
 
@@ -78,7 +95,12 @@ public class TurnSystem : MonoBehaviour
     public void tutorial() {
         endTurnButton.SetActive(false);
 		tutorialText.enabled = true;
-		tutorialText.text = ("The enemy uses " + AICards.enemyMoveText.text + ". " + "Counter their move by selecting cards, then press End Turn. The blue SE bar determines how many cards you can play. <b>Cards are played <i>immediately</i> upon clicking</b> ");
+            if (AICards.Bash == true) {
+		tutorialText.text = ("The enemy uses " + "<color=red>Attack: 10HP + Vulnerability. </color>" + "Counter their move by selecting cards, then press End Turn. The blue SE bar determines how many cards you can play. <b>Cards are played <i>immediately</i> upon clicking</b> ");
+            } else {
+        tutorialText.text = ("The enemy uses " + "<color=green>Defend: 5HP. </color>" + "Counter their move by selecting cards, then press End Turn. The blue SE bar determines how many cards you can play. <b>Cards are played <i>immediately</i> upon clicking</b> ");
+            }
+
 	}
 
 	public void endTutorial() {
@@ -86,6 +108,7 @@ public class TurnSystem : MonoBehaviour
 		endTutorialButton.SetActive(false);
         endTurnButton.SetActive(true);
         gm.DrawMaxCards();
+        
 	}
 
     public void updateActionBox() {
@@ -107,24 +130,49 @@ public class TurnSystem : MonoBehaviour
         opponentTurn +=1;
         endTurnButton.SetActive(false);
         clearActionBox();
-        if (AICards.Bash == true) {
+        
+
+        if (AICards.OpponentName == "Scar") { 
+            calculateDamageWithVulnerable();
+            AICards.ScarPickMove();
+                if(AICards.Defend == true) {
+                    isVulnerable = false;
+                    HPValues.vulnerableText.enabled = false;
+                }
+          }  else {
+          WizCalculateDamage();
+          AICards.WizardPickMove();
+          }
+          Debug.Log("This is a test");
+        totalAttack = 0;
+        totalDefend = 0;
+        //playerAnimation.enabled = false;
+       // opponentAnimation.enabled = true;      
+        Invoke(nameof(EndOpponentTurn), 3);
+       
+    }
+
+    public void calculateDamageWithVulnerable() {
+        if (AICards.Bash == true) { //calculate damage applied if bash
             HPValues.calculateBash();
-        } else { 
-            HPValues.calculateDefend();
+        } else if (AICards.Defend == true) { 
+            HPValues.calculateDefend(); //calculate damage applied if defend
         }
             if(AICards.Bash == true) {
                 isVulnerable = true;
                 HPValues.vulnerableText.enabled = true;
             }
-        AICards.pickMove();
-            if(AICards.Defend == true) {
-                isVulnerable = false;
-                HPValues.vulnerableText.enabled = false;
-            }
-        totalAttack = 0;
-        totalDefend = 0;      
-        Invoke(nameof(EndOpponentTurn), 2);
-       
+
+    }
+
+    public void WizCalculateDamage() {
+        if (AICards.Bash == true) { //calculate damage applied if bash
+            HPValues.calculateBash();
+        } else if (AICards.Defend == true) { 
+            HPValues.calculateDefend(); //calculate damage applied if defend
+        } else if (AICards.Heal == true) {
+            HPValues.calculateHeal();
+        }
     }
 
     public void EndOpponentTurn() {
@@ -132,11 +180,15 @@ public class TurnSystem : MonoBehaviour
         yourTurn +=1;
         endTurnButton.SetActive(true);
         currentMana = 3;
+        Debug.Log("This is a test END OPPONENT");
         updateSEBar();
         gm.Shuffle();
         gm.DrawMaxCards();
+        playerAnimation.enabled = true;
+        opponentAnimation.enabled = false;    
         Debug.Log("IS vulernable: " + isVulnerable);
     }
+
 
     public void updateSEBar() {
         
@@ -166,7 +218,7 @@ public class TurnSystem : MonoBehaviour
 
     public void playerWins() { 
         playerHasWon = true;
-        SceneManager.LoadScene(sceneName:"WalkingScene");
+        SceneManager.LoadScene(sceneName:"NewCardScene");
     }
 
     public void opponentWins() {

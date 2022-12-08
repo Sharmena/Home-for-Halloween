@@ -14,22 +14,23 @@ public class HPValues : MonoBehaviour
     public TextMeshProUGUI vulnerableText;
     
     TurnSystem TurnSystem;
+    AICards AICards;
 
 
     // Start is called before the first frame update
     void Start()
     {
         //initializes player and enemy HP value
-     playerHP = 30;
-     enemyHP = 40;
+     
      TurnSystem = FindObjectOfType<TurnSystem>();
+     AICards = FindObjectOfType<AICards>();
      vulnerableText.enabled = false;
     }
 
     
     public void calculateBash() {   //calculates damage inflicted to player and enemy when enemy bashes
         enemyHP -= TurnSystem.totalAttack;
-        int playerDamageRec = 10;
+        int playerDamageRec = AICards.BashValue;
         if (TurnSystem.isVulnerable == true) {
             playerDamageRec = (int)(playerDamageRec * 1.5);
         }
@@ -46,14 +47,26 @@ public class HPValues : MonoBehaviour
                 vulnerableText.enabled = false;
     }
 
+
+
     public void calculateDefend() { // //calculates damage inflicted to player and enemy when enemy defends
-        if (TurnSystem.totalAttack > 5) {
-        enemyHP -= TurnSystem.totalAttack - 5;
+        if (TurnSystem.totalAttack > AICards.DefendValue) {
+        enemyHP -= TurnSystem.totalAttack - AICards.DefendValue;
             enemyHPNum.text = enemyHP.ToString();
         }
             TurnSystem.isVulnerable = false;
             vulnerableText.enabled = false;
             }
+
+    
+    public void calculateHeal() {
+        int healAmt = AICards.HealValue - TurnSystem.totalAttack;
+        if (healAmt > -1) {
+            enemyHP += healAmt;
+        } else
+            enemyHP -= TurnSystem.totalAttack - AICards.HealValue;
+        enemyHPNum.text = enemyHP.ToString();
+    }
         
     
     // Update is called once per frame

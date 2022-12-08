@@ -10,5 +10,6 @@ public class CardDataBase : MonoBehaviour
     {
         cardList.Add (new Card (0, "Cheer", 1, 6, "Deal 6 Happiness"));
         cardList.Add (new Card (1, "Persevere", 1, 5, "Block 5 Sadness"));
+        cardList.Add (new Card (2, "BOO", 2, 10,"Deal 10 Happiness + Vulnerability"));
     }
 }

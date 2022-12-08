@@ -153,10 +153,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyMoveText: {fileID: 1948371402}
-  enemyMoves: []
+  ScarEnemyMoves: []
+  WizardEnemyMoves: []
   randomMove: 
+  OpponentName: Scar
   Bash: 0
   Defend: 0
+  Heal: 0
+  BashValue: 0
+  DefendValue: 0
+  HealValue: 0
 --- !u!4 &5464359
 Transform:
   m_ObjectHideFlags: 0
@@ -738,8 +744,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278967325
-  m_fontColor: {r: 0.1137255, g: 0.86274517, b: 0.043137256, a: 1}
+    rgba: 4278255383
+  m_fontColor: {r: 0.09019608, g: 1, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -2682,8 +2688,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278255382
-  m_fontColor: {r: 0.084590435, g: 1, b: 0, a: 1}
+    rgba: 4278255383
+  m_fontColor: {r: 0.09019608, g: 1, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -2817,8 +2823,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278967325
-  m_fontColor: {r: 0.1137255, g: 0.86274517, b: 0.043137256, a: 1}
+    rgba: 4278255383
+  m_fontColor: {r: 0.09019608, g: 1, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -3396,8 +3402,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 95
-  m_fontSizeBase: 95
+  m_fontSize: 75
+  m_fontSizeBase: 75
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -3554,12 +3560,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isYourTurn: 0
   isVulnerable: 0
+  startWithTutorial: 1
   yourTurn: 0
   opponentTurn: 0
   turnText: {fileID: 420225738}
   maxMana: 0
   totalAttack: 0
   totalDefend: 0
+  playerAnimation: {fileID: 92980978}
+  opponentAnimation: {fileID: 953183498}
+  playerHasWon: 0
+  opponentHasWon: 0
   currentMana: 0
   endTurnButton: {fileID: 969200649}
   endTutorialButton: {fileID: 1011916630}
@@ -4091,8 +4102,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278255382
-  m_fontColor: {r: 0.084590435, g: 1, b: 0, a: 1}
+    rgba: 4278255383
+  m_fontColor: {r: 0.08928561, g: 1, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -4342,8 +4353,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4e8b23caa5f44915b7978726aed2cab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerHP: 0
-  enemyHP: 0
+  playerHP: 30
+  enemyHP: 40
   playerMaxHP: 0
   enemyMaxHP: 0
   playerHPNum: {fileID: 1215291272}
@@ -4528,8 +4539,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 95
-  m_fontSizeBase: 95
+  m_fontSize: 75
+  m_fontSizeBase: 75
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
