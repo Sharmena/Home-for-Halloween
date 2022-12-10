@@ -12,6 +12,7 @@ public class HPValues : MonoBehaviour
     public TextMeshProUGUI playerHPNum;
     public TextMeshProUGUI enemyHPNum;
     public TextMeshProUGUI vulnerableText;
+    public TextMeshProUGUI EnemyVulnerableText;
     
     TurnSystem TurnSystem;
     AICards AICards;
@@ -25,13 +26,19 @@ public class HPValues : MonoBehaviour
      TurnSystem = FindObjectOfType<TurnSystem>();
      AICards = FindObjectOfType<AICards>();
      vulnerableText.enabled = false;
+     EnemyVulnerableText.enabled = false;
     }
 
     
     public void calculateBash() {   //calculates damage inflicted to player and enemy when enemy bashes
+        
+        if (TurnSystem.OpponentIsVulnerable == true) { 
+            TurnSystem.totalAttack = (int)(TurnSystem.totalAttack * 1.5);
+        }
+        
         enemyHP -= TurnSystem.totalAttack;
         int playerDamageRec = AICards.BashValue;
-        if (TurnSystem.isVulnerable == true) {
+        if (TurnSystem.PlayerIsVulnerable == true) {
             playerDamageRec = (int)(playerDamageRec * 1.5);
         }
         if (TurnSystem.totalDefend > 0) {
@@ -43,29 +50,48 @@ public class HPValues : MonoBehaviour
             }
 
                 enemyHPNum.text = enemyHP.ToString();
-                TurnSystem.isVulnerable = false;
+                TurnSystem.PlayerIsVulnerable = false;
                 vulnerableText.enabled = false;
+
+                TurnSystem.OpponentIsVulnerable = false;
+                EnemyVulnerableText.enabled = false;
     }
 
 
 
     public void calculateDefend() { // //calculates damage inflicted to player and enemy when enemy defends
+        
+        if (TurnSystem.OpponentIsVulnerable == true) { 
+            TurnSystem.totalAttack = (int)(TurnSystem.totalAttack * 1.5);
+        }
+
         if (TurnSystem.totalAttack > AICards.DefendValue) {
         enemyHP -= TurnSystem.totalAttack - AICards.DefendValue;
             enemyHPNum.text = enemyHP.ToString();
         }
-            TurnSystem.isVulnerable = false;
+            TurnSystem.PlayerIsVulnerable = false;
             vulnerableText.enabled = false;
+
+            TurnSystem.OpponentIsVulnerable = false;
+                EnemyVulnerableText.enabled = false;
             }
 
     
     public void calculateHeal() {
+
+        if (TurnSystem.OpponentIsVulnerable == true) { 
+            TurnSystem.totalAttack = (int)(TurnSystem.totalAttack * 1.5);
+        }
+
         int healAmt = AICards.HealValue - TurnSystem.totalAttack;
         if (healAmt > -1) {
             enemyHP += healAmt;
         } else
             enemyHP -= TurnSystem.totalAttack - AICards.HealValue;
         enemyHPNum.text = enemyHP.ToString();
+
+        TurnSystem.OpponentIsVulnerable = false;
+                EnemyVulnerableText.enabled = false;
     }
         
     

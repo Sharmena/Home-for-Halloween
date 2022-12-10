@@ -9,7 +9,9 @@ using TMPro;
 public class TurnSystem : MonoBehaviour
 {
     public bool isYourTurn;
-    public bool isVulnerable;
+    public bool PlayerIsVulnerable;
+    public bool OpponentIsVulnerable;
+    public bool playerSelectedVulnerable; //player selected a card with vulnerability
     public bool startWithTutorial;
 
     public int yourTurn;
@@ -136,7 +138,7 @@ public class TurnSystem : MonoBehaviour
             calculateDamageWithVulnerable();
             AICards.ScarPickMove();
                 if(AICards.Defend == true) {
-                    isVulnerable = false;
+                    PlayerIsVulnerable = false;
                     HPValues.vulnerableText.enabled = false;
                 }
           }  else {
@@ -146,6 +148,7 @@ public class TurnSystem : MonoBehaviour
           Debug.Log("This is a test");
         totalAttack = 0;
         totalDefend = 0;
+        playerSelectedVulnerable = false;
         //playerAnimation.enabled = false;
        // opponentAnimation.enabled = true;      
         Invoke(nameof(EndOpponentTurn), 3);
@@ -153,25 +156,31 @@ public class TurnSystem : MonoBehaviour
     }
 
     public void calculateDamageWithVulnerable() {
-        if (AICards.Bash == true) { //calculate damage applied if bash
+        if (AICards.Bash == true) { //calculate damage applied if AI bash
             HPValues.calculateBash();
         } else if (AICards.Defend == true) { 
-            HPValues.calculateDefend(); //calculate damage applied if defend
+            HPValues.calculateDefend(); //calculate damage applied if AI defend
         }
-            if(AICards.Bash == true) {
-                isVulnerable = true;
+            if(AICards.Bash == true) { 
+                PlayerIsVulnerable = true;
                 HPValues.vulnerableText.enabled = true;
             }
 
     }
 
     public void WizCalculateDamage() {
-        if (AICards.Bash == true) { //calculate damage applied if bash
+        if (AICards.Bash == true) { //calculate damage applied if AI bash
             HPValues.calculateBash();
         } else if (AICards.Defend == true) { 
-            HPValues.calculateDefend(); //calculate damage applied if defend
-        } else if (AICards.Heal == true) {
+            HPValues.calculateDefend(); //calculate damage applied if AI defend
+        } else if (AICards.Heal == true) { //calculate damage applied if AI heal
             HPValues.calculateHeal();
+        }
+        if (playerSelectedVulnerable == true) {
+            OpponentIsVulnerable = true;
+        }
+        if (OpponentIsVulnerable == true) {
+            HPValues.EnemyVulnerableText.enabled = true;
         }
     }
 
@@ -186,7 +195,7 @@ public class TurnSystem : MonoBehaviour
         gm.DrawMaxCards();
         playerAnimation.enabled = true;
         opponentAnimation.enabled = false;    
-        Debug.Log("IS vulernable: " + isVulnerable);
+        Debug.Log("IS vulernable: " + PlayerIsVulnerable);
     }
 
 

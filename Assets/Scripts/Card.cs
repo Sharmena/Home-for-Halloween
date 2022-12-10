@@ -68,11 +68,14 @@ public class Card : MonoBehaviour
 			gm.numCardsInHand --;
 			TurnSystem.currentMana -= this.cost;
 			TurnSystem.updateSEBar();
-				if (this.id == 0) {
+				if (this.id == 0) { //if card is bash
 					TurnSystem.totalAttack += this.power;
-					}	else {
+					}	else if (this.id == 1) {	//if card is defend
 					TurnSystem.totalDefend += this.power;
-						}
+					}	else if (this.id == 2) {
+					TurnSystem.totalAttack += this.power;
+					TurnSystem.playerSelectedVulnerable = true;	
+					}
 			TurnSystem.updateActionBox();	
 			Debug.Log("Total Attack is" + TurnSystem.totalAttack);
 			Debug.Log("Total Defend is" + TurnSystem.totalDefend);

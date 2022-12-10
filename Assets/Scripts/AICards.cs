@@ -23,13 +23,15 @@ public class AICards : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //add moves to movelist, pick a move
-      
+        
+        //add moves to movelist
        WizardEnemyMoves.Add("WizBash");
        WizardEnemyMoves.Add("WizDefend");
        WizardEnemyMoves.Add("WizHeal");
        ScarEnemyMoves.Add("Bash"); 
        ScarEnemyMoves.Add("Defend");
+
+       //determine opponent, pick move from their deck
        switch (OpponentName) {
             case "Scar":
             ScarPickMove();
@@ -41,7 +43,7 @@ public class AICards : MonoBehaviour
     }
     
 
-//randomly picks a move, set enemy move text box, set defend or bash to t/f
+//randomly picks a move for Scar, set enemy move text box, set defend or bash to t/f
     
     public void ScarPickMove() {
         string randomMove = ScarEnemyMoves[Random.Range(0, ScarEnemyMoves.Count)];
@@ -64,6 +66,7 @@ public class AICards : MonoBehaviour
         }
     }
 
+//randomly picks a move for Scar, set enemy move text box, set defend, bash, or heal to t/f
     public void WizardPickMove() {
         string randomMove = WizardEnemyMoves[Random.Range(0, WizardEnemyMoves.Count)];
         BashValue = 15;
