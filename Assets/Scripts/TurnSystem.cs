@@ -53,6 +53,7 @@ public class TurnSystem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        startGame();
         
        isYourTurn = true;
        yourTurn = 1;
@@ -99,6 +100,7 @@ public class TurnSystem : MonoBehaviour
     }
     public void tutorial() {
         endTurnButton.SetActive(false);
+        Debug.Log("From the tutorial");
 		tutorialText.enabled = true;
             if (AICards.Bash == true) {
 		tutorialText.text = ("The enemy uses " + "<color=red>Attack: 10HP + Vulnerability. </color>" + "Counter their move by selecting cards, then press End Turn. The blue SE bar determines how many cards you can play. <b>Cards are played <i>immediately</i> upon clicking</b> ");

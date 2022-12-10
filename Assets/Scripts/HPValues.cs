@@ -27,7 +27,7 @@ public class HPValues : MonoBehaviour
      AICards = FindObjectOfType<AICards>();
      vulnerableText.enabled = false;
      EnemyVulnerableText.enabled = false;
-     TurnSystem.startGame();
+    // TurnSystem.startGame();
     }
 
     
