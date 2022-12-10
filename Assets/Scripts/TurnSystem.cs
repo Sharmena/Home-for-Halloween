@@ -53,11 +53,12 @@ public class TurnSystem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
        isYourTurn = true;
        yourTurn = 1;
        opponentTurn = 0;
 
-       
+    
 
        playerHasWon = false;
        opponentHasWon = false;
@@ -70,17 +71,9 @@ public class TurnSystem : MonoBehaviour
        AICards = FindObjectOfType<AICards>();
        HPValues = FindObjectOfType<HPValues>();
        gm = FindObjectOfType<GameManager>();
-       attackValueText.enabled = false;
-       blockValueText.enabled = false;
+       
+   
 
-       if(startWithTutorial == true) {
-        tutorial();
-       } else {
-        endTutorial();
-       }
-       
-       
-       //gm.DrawCard();
 
 
 		
@@ -94,6 +87,16 @@ public class TurnSystem : MonoBehaviour
         } else turnText.text = "Opponent Turn";
     }
 
+        //starts game with or without tutorial. This is called in Start() of HPValues
+    public void startGame() {
+        attackValueText.enabled = false;
+       blockValueText.enabled = false;
+       if(startWithTutorial == true) {
+        tutorial();
+       } else {
+            endTutorial();
+        }
+    }
     public void tutorial() {
         endTurnButton.SetActive(false);
 		tutorialText.enabled = true;
@@ -145,7 +148,6 @@ public class TurnSystem : MonoBehaviour
           WizCalculateDamage();
           AICards.WizardPickMove();
           }
-          Debug.Log("This is a test");
         totalAttack = 0;
         totalDefend = 0;
         playerSelectedVulnerable = false;
