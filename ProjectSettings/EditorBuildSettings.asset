@@ -14,4 +14,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Deck System.unity
     guid: 69d839419d3b2d34895e67210ea0ef49
+  - enabled: 1
+    path: Assets/Scenes/NewCardScene.unity
+    guid: 680fc0d67073e480bba356d78fbb3562
+  - enabled: 1
+    path: Assets/Scenes/Deck System Wizard.unity
+    guid: 164cbe05a6950470f965558e82aa9344
   m_configObjects: {}

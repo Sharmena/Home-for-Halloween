@@ -12,7 +12,7 @@ using UnityEngine.UI;
 
 public class CowboyConversation : MyFluentDialogue
 {
-    public bool defeated;
+
     public TextMeshProUGUI OtherTextElement;
 
     public override void OnFinish()
@@ -21,10 +21,6 @@ public class CowboyConversation : MyFluentDialogue
         base.OnFinish();
     }
 
-    private void defeat()
-    {
-        defeated = true;
-    }
 
     public override FluentNode Create()
     {
@@ -47,8 +43,6 @@ public class CowboyConversation : MyFluentDialogue
                             
                             Option("Yes") *
                                 Write(0, "That sounds so fun, let’s giddy up.") *
-                                Do (() => defeat() ) *
-
                                 End() *
 
                             Option("No") *

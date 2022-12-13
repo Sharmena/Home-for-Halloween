@@ -11,7 +11,6 @@ using UnityEngine.SceneManagement;
 public class ScarConversation : MyFluentDialogue
 {
     public TextMeshProUGUI OtherTextElement;
-    public bool defeated;
 
     public override void OnFinish()
     {
@@ -23,10 +22,6 @@ public class ScarConversation : MyFluentDialogue
         SceneManager.LoadScene(sceneName:"Deck System");
     }
 
-    private void defeat()
-    {
-        defeated = true;
-    }
 
     public override FluentNode Create()
     {
@@ -42,22 +37,7 @@ public class ScarConversation : MyFluentDialogue
                     Options
                     (
                         Option("Let me cheer you up (Start card game)") *
-                        Do(() => startBattle()) *
-                        Write(0.5f, "(Did you win)") *
-                        
-
-                        Options
-                        (
-                            
-                            Option("Yes") *
-                            Do(() => defeat()) *
-                                End() *
-
-                            Option("No") *
-                                End()
-                             
-
-                        ) 
+                        Do(() => startBattle())  
 
                         
                     )

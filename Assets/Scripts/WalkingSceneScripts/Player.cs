@@ -29,6 +29,14 @@ public class Player : MonoBehaviour
 
       private void OnTriggerEnter(Collider other)
     {
-        FluentManager.Instance.ExecuteClosestAction(gameObject);
+        if (other.transform.parent.name == "ScarGhost" && DefeatManager.scarDefeat == true)
+        {
+            //do nothing
+        }
+        else
+        {
+            FluentManager.Instance.ExecuteClosestAction(gameObject);
+        }
+        
     } 
 }

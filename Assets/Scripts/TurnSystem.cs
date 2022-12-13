@@ -146,9 +146,13 @@ public class TurnSystem : MonoBehaviour
                     PlayerIsVulnerable = false;
                     HPValues.vulnerableText.enabled = false;
                 }
-          }  else {
+          }  else if (AICards.OpponentName == "Wizard") {
           WizCalculateDamage();
           AICards.WizardPickMove();
+          } else if (AICards.OpponentName == "Devil") {
+            //TBA
+          } else {
+            //Devil TBA
           }
         totalAttack = 0;
         totalDefend = 0;
@@ -232,6 +236,19 @@ public class TurnSystem : MonoBehaviour
     public void playerWins() { 
         playerHasWon = true;
         SceneManager.LoadScene(sceneName:"NewCardScene");
+
+        if (AICards.OpponentName == "Scar") {
+            DefeatManager.scarDefeat = true;
+        } else if (AICards.OpponentName == "Wizard") {
+            DefeatManager.wizardDefeat = true;
+        }
+        else if (AICards.OpponentName == "Cowboy") {
+            DefeatManager.cowboyDefeat = true;
+        }
+        else {
+            DefeatManager.devilDefeat = true;
+        }
+
     }
 
     public void opponentWins() {

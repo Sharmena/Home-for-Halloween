@@ -38,7 +38,7 @@ namespace Fluent
                 instance = this;
             } else if (instance != null)
             {
-                Destroy(gameObject);
+                Destroy(gameObject); 
             }
         }
         

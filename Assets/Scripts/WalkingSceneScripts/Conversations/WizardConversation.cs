@@ -1,6 +1,7 @@
 using Fluent;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// This example introduces writing text to the dialog.
@@ -10,7 +11,6 @@ using UnityEngine.UI;
 public class WizardConversation : MyFluentDialogue
 {
     public TextMeshProUGUI OtherTextElement;
-    public bool defeated;
 
     public override void OnFinish()
     {
@@ -18,9 +18,9 @@ public class WizardConversation : MyFluentDialogue
         base.OnFinish();
     }
 
-    private void defeat()
+    private void startBattle()
     {
-        defeated = true;
+        SceneManager.LoadScene(sceneName: "Deck System Wizard");
     }
 
     public override FluentNode Create()
@@ -37,26 +37,9 @@ public class WizardConversation : MyFluentDialogue
                     Options
                     (
                         Option("Let me try to help (start card game)") *
-                        Write(0.5f, "(Did you win)") *
+                        Do(() => startBattle())
 
-                        Options
-                        (
-                            
-                            Option("Yes") *
-                                Write(0, "That was so fun! Its been a while since I’ve cast spells on someone else. Can I go with you for this Halloween?") *
-                                Options
-                                (
-                                     Option("Let's go") *
-                                     Do(() => defeat()) *
-                                        End() 
-                                ) *
-
-                            Option("No") *
-                                End()
-
-                        ) 
-
-                        
+                    //Eventually want to add this when player wins - "That was so fun! Its been a while since I’ve cast spells on someone else. Can I go with you for this Halloween?" 
                     )
              );
     }

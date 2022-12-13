@@ -9,7 +9,6 @@ public class GhostMove : MonoBehaviour
     private float x;
     public float playerInput;
     public GameObject ghost;
-    public DefeatManager defeatManager;
     public bool defeated;
 
 
@@ -35,19 +34,24 @@ public class GhostMove : MonoBehaviour
 
         if (this.name == "ScarGhost")
         {
-            defeated = defeatManager.scarDefeat;
+            defeated = DefeatManager.scarDefeat;
         }
         if (this.name == "WizardGhost")
         {
-            defeated = defeatManager.wizardDefeat;
+            defeated = DefeatManager.wizardDefeat;
         }
         if (this.name == "DevilGhost")
         {
-            defeated = defeatManager.devilDefeat;
+            defeated = DefeatManager.devilDefeat;
         }
         if (this.name == "CowboyGhost")
         {
-            defeated = defeatManager.cowboyDefeat;
+            defeated = DefeatManager.cowboyDefeat;
         }
+    }
+
+    void flip()
+    {
+        this.GetComponentInChildren<SpriteRenderer>().flipX = true;
     }
 }

@@ -722,7 +722,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OtherTextElement: {fileID: 433781988}
-  defeated: 0
 --- !u!65 &250209859
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -924,7 +923,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 300512927}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 14.59, y: -0.65, z: 0.0030575653}
+  m_LocalPosition: {x: 14.129, y: -0.65, z: 0.0030575653}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -948,7 +947,6 @@ MonoBehaviour:
   speed: -1
   playerInput: 0
   ghost: {fileID: 2124117297}
-  defeatManager: {fileID: 1691442092}
   defeated: 0
 --- !u!1 &430569151
 GameObject:
@@ -2922,6 +2920,7 @@ GameObject:
   m_Component:
   - component: {fileID: 882442604}
   - component: {fileID: 882442605}
+  - component: {fileID: 882442606}
   m_Layer: 0
   m_Name: ScarGhost
   m_TagString: Untagged
@@ -2936,8 +2935,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 882442603}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.87, y: -0.65, z: 0.0030575653}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 3.87, y: -0.87999994, z: 0.003057565}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2961,8 +2960,27 @@ MonoBehaviour:
   speed: -1
   playerInput: 0
   ghost: {fileID: 250209851}
-  defeatManager: {fileID: 1691442092}
   defeated: 0
+--- !u!95 &882442606
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 882442603}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 63dc445fec86d844485efa4d08653a72, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &914480527
 GameObject:
   m_ObjectHideFlags: 0
@@ -3437,7 +3455,6 @@ MonoBehaviour:
   speed: -1
   playerInput: 0
   ghost: {fileID: 1804689261}
-  defeatManager: {fileID: 1691442092}
   defeated: 0
 --- !u!1 &1002693565
 GameObject:
@@ -4256,11 +4273,11 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1220702990}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.4783216, y: 1.4199095, z: 1}
-  m_Center: {x: -1.2404125, y: -0.88980806, z: 0}
+  m_Size: {x: 1.6878505, y: 1.4199095, z: 1}
+  m_Center: {x: -0.84517694, y: -0.88980806, z: 0}
 --- !u!33 &1220702994
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -4810,6 +4827,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1375160849}
   m_CullTransparentMesh: 0
+--- !u!1 &1394325183
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1394325185}
+  - component: {fileID: 1394325184}
+  m_Layer: 0
+  m_Name: DefeatManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1394325184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1394325183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efe225c03257c2b43bed45845193a454, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1394325185
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1394325183}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.059455957, y: 0.18024664, z: -0.0029625543}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1402338491
 GameObject:
   m_ObjectHideFlags: 0
@@ -5044,7 +5105,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1450107161}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.06, y: -0.65, z: 0.0030575653}
+  m_LocalPosition: {x: 10.709, y: -0.65, z: 0.0030575653}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5068,7 +5129,6 @@ MonoBehaviour:
   speed: -1
   playerInput: 0
   ghost: {fileID: 1789015907}
-  defeatManager: {fileID: 1691442092}
   defeated: 0
 --- !u!1 &1466912426
 GameObject:
@@ -5400,7 +5460,7 @@ LightingSettings:
   m_PVRFilteringAtrousPositionSigmaIndirect: 2
   m_PVRFilteringAtrousPositionSigmaAO: 1
   m_PVRTiledBaking: 0
---- !u!1 &1691442091
+--- !u!1 &1607618750
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5408,40 +5468,40 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1691442093}
-  - component: {fileID: 1691442092}
+  - component: {fileID: 1607618752}
+  - component: {fileID: 1607618751}
   m_Layer: 0
-  m_Name: DefeatManager
+  m_Name: LocationsOnStart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1691442092
+--- !u!114 &1607618751
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1691442091}
+  m_GameObject: {fileID: 1607618750}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: efe225c03257c2b43bed45845193a454, type: 3}
+  m_Script: {fileID: 11500000, guid: 55d1958696a9a624fb9c00da242e1740, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scarDefeat: 0
-  devilDefeat: 0
-  wizardDefeat: 0
-  cowboyDefeat: 0
---- !u!4 &1691442093
+  scar: {fileID: 882442603}
+  wizard: {fileID: 990843484}
+  devil: {fileID: 1450107161}
+  cowboy: {fileID: 300512927}
+--- !u!4 &1607618752
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1691442091}
+  m_GameObject: {fileID: 1607618750}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 243.84871, y: 138.57968, z: -2.4730208}
+  m_LocalPosition: {x: 0.059455957, y: 0.18024664, z: -0.0029625543}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5835,7 +5895,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OtherTextElement: {fileID: 433781988}
-  defeated: 0
 --- !u!114 &1789015910
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6322,7 +6381,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OtherTextElement: {fileID: 433781988}
-  defeated: 0
 --- !u!65 &1804689268
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7181,7 +7239,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff7628bad1dd3f24384cbf4aff04f5b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defeated: 0
   OtherTextElement: {fileID: 433781988}
 --- !u!65 &2124117304
 BoxCollider:
