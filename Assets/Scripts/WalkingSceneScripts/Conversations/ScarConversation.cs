@@ -36,8 +36,11 @@ public class ScarConversation : MyFluentDialogue
                     Options
                     (
                         Option("Let me cheer you up (Start card game)") *
-                        Do(() => startBattle())  
-                                                
+                        Do(() => startBattle()) *
+                        End() 
+
+
+
                     )
              );
     }

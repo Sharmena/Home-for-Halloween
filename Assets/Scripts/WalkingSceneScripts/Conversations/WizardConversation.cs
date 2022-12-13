@@ -36,7 +36,8 @@ public class WizardConversation : MyFluentDialogue
                     Options
                     (
                         Option("Let me try to help (start card game)") *
-                        Do(() => startBattle())
+                        Do(() => startBattle()) *
+                        End()
                     //Eventually want to add this when player wins - "That was so fun! Its been a while since I’ve cast spells on someone else. Can I go with you for this Halloween?" 
                     )
              );
