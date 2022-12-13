@@ -18,10 +18,9 @@ public class ScarConversation : MyFluentDialogue
         base.OnFinish();
     }
 
-     private void startBattle() {
+    private void startBattle() {
         SceneManager.LoadScene(sceneName:"Deck System");
     }
-
 
     public override FluentNode Create()
     {
@@ -38,8 +37,7 @@ public class ScarConversation : MyFluentDialogue
                     (
                         Option("Let me cheer you up (Start card game)") *
                         Do(() => startBattle())  
-
-                        
+                                                
                     )
              );
     }

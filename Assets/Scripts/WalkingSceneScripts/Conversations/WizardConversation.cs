@@ -18,8 +18,7 @@ public class WizardConversation : MyFluentDialogue
         base.OnFinish();
     }
 
-    private void startBattle()
-    {
+    private void startBattle() {
         SceneManager.LoadScene(sceneName: "Deck System Wizard");
     }
 
@@ -38,7 +37,6 @@ public class WizardConversation : MyFluentDialogue
                     (
                         Option("Let me try to help (start card game)") *
                         Do(() => startBattle())
-
                     //Eventually want to add this when player wins - "That was so fun! Its been a while since I’ve cast spells on someone else. Can I go with you for this Halloween?" 
                     )
              );

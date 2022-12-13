@@ -32,6 +32,9 @@ public class Player : MonoBehaviour
         if (other.transform.parent.name == "ScarGhost" && DefeatManager.scarDefeat == true)
         {
             //do nothing
+        } else if (other.transform.parent.name == "WizardGhost" && DefeatManager.wizardDefeat == true)
+        {
+            //do nothing
         }
         else
         {
