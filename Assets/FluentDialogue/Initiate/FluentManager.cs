@@ -12,7 +12,7 @@ namespace Fluent
     [AddComponentMenu("Fluent/Fluent Manager")]
     public class FluentManager : MonoBehaviour
     {
-        List<FluentScript> possibleActions = new List<FluentScript>();
+        public List<FluentScript> possibleActions = new List<FluentScript>();
         public GameObject ClosestActionUIText;
         public GameObject PlayerObject;
 

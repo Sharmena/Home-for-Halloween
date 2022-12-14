@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Fluent;
 
 public class LocationsOnStart : MonoBehaviour
 {
@@ -13,6 +14,10 @@ public class LocationsOnStart : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        FluentManager.Instance.possibleActions.Clear();
+        FluentManager.Instance.PlayerObject = GameObject.Find("Player");
+        FluentManager.Instance.ClosestActionUIText = GameObject.Find("ActionText");
+
         if (DefeatManager.scarDefeat == true && DefeatManager.scarFollowing)
         {
             scar.transform.position = new Vector3(-2.17f, -0.65f, 0f);

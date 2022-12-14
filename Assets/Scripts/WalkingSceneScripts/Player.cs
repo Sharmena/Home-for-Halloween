@@ -1,5 +1,6 @@
 using UnityEngine;
 using Fluent;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour 
 {
@@ -27,19 +28,12 @@ public class Player : MonoBehaviour
 	
 	}
 
-      private void OnTriggerEnter(Collider other)
+   private void OnTriggerEnter(Collider other)
     {
-        if (other.transform.parent.name == "ScarGhost" && DefeatManager.scarDefeat == true)
-        {
-            //do nothing
-        } else if (other.transform.parent.name == "WizardGhost" && DefeatManager.wizardDefeat == true)
-        {
-            //do nothing
-        }
-        else
+        if (other.transform.parent.name == "ScarGhost" && DefeatManager.scarDefeat != true)
         {
             FluentManager.Instance.ExecuteClosestAction(gameObject);
         }
-        
+
     } 
 }
