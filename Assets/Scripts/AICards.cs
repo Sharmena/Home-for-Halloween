@@ -18,6 +18,8 @@ public class AICards : MonoBehaviour
     public int BashValue;
     public int DefendValue;
     public int HealValue;
+    public bool fireBall;
+    public int fireBallValue;
     
 
     // Start is called before the first frame update
@@ -72,12 +74,14 @@ public class AICards : MonoBehaviour
         BashValue = 15;
         DefendValue = 15;
         HealValue = 10;
+        fireBallValue = 15;
         switch (randomMove) {
             case "WizBash":
             enemyMoveText.color = Color.red;
             enemyMoveText.text = "Attack: 15HP";
             Defend = false;
             Heal = false;
+            fireBall = false;
             Bash = true;
             
                 break;
@@ -86,6 +90,7 @@ public class AICards : MonoBehaviour
             enemyMoveText.text = "Defend: 15HP";   
             Bash = false;
             Heal = false;
+            fireBall = false;
             Defend = true;
                 break;
             case "WizHeal":
@@ -93,8 +98,18 @@ public class AICards : MonoBehaviour
             enemyMoveText.text = "Heal: 10HP";   
             Bash = false;
             Defend = false;
+            fireBall = false;
             Heal = true;
-                break;    
+                break;   
+
+            case "fireBall":
+            enemyMoveText.color = Color.red;
+            enemyMoveText.text = "Attack: 15HP + Burn: 2HP for 3 turns";
+            Defend = false;
+            Heal = false;
+            Bash = false;
+            fireBall = true;
+                break; 
         }
     }
 

@@ -20,7 +20,6 @@ public class TurnSystem : MonoBehaviour
     public int maxMana;
     public int totalAttack;
     public int totalDefend;
-
     public Animator playerAnimation;
     public Animator opponentAnimation;
 
@@ -29,6 +28,10 @@ public class TurnSystem : MonoBehaviour
     public bool opponentHasWon;
 
     public int currentMana;
+
+    public bool fireOn;
+    public int turnCounter;
+    public int tickDamage;
 
     public GameObject endTurnButton;
 
@@ -58,9 +61,9 @@ public class TurnSystem : MonoBehaviour
        isYourTurn = true;
        yourTurn = 1;
        opponentTurn = 0;
-
+       turnCounter = 0;
     
-
+       fireOn = false;
        playerHasWon = false;
        opponentHasWon = false;
 
@@ -132,6 +135,19 @@ public class TurnSystem : MonoBehaviour
         blockValueText.text = ("");
     }
 
+    public void fireDamage(){
+        while(fireOn == true)
+        {
+            tickDamage = 2;
+            turnCounter++;
+        }
+        if(turnCounter == 3){
+        turnCounter = 0;
+        tickDamage = 0;
+        fireOn = false;
+        }
+    }
+
     public void EndYourTurn(){
         isYourTurn = false;
         opponentTurn +=1;
@@ -160,6 +176,7 @@ public class TurnSystem : MonoBehaviour
         //playerAnimation.enabled = false;
        // opponentAnimation.enabled = true;      
         Invoke(nameof(EndOpponentTurn), 3);
+        Invoke(nameof(fireDamage), 1);
        
     }
 
@@ -183,6 +200,8 @@ public class TurnSystem : MonoBehaviour
             HPValues.calculateDefend(); //calculate damage applied if AI defend
         } else if (AICards.Heal == true) { //calculate damage applied if AI heal
             HPValues.calculateHeal();
+        } else if (AICards.fireBall == true) {
+            HPValues.calculatefireBall(); //calculate damage applied when fireball
         }
         if (playerSelectedVulnerable == true) {
             OpponentIsVulnerable = true;

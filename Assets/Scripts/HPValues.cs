@@ -10,6 +10,7 @@ public class HPValues : MonoBehaviour
     public int enemyHP;
     public int playerMaxHP;
     public int enemyMaxHP;
+    public int turnCounter;
     public TextMeshProUGUI playerHPNum;
     public TextMeshProUGUI enemyHPNum;
     public TextMeshProUGUI vulnerableText;
@@ -40,6 +41,9 @@ public class HPValues : MonoBehaviour
         
         enemyHP -= TurnSystem.totalAttack;
         int playerDamageRec = AICards.BashValue;
+        if (TurnSystem.tickDamage > 0){
+            playerDamageRec += TurnSystem.tickDamage;
+        }
         if (TurnSystem.PlayerIsVulnerable == true) {
             playerDamageRec = (int)(playerDamageRec * 1.5);
         }
@@ -95,7 +99,22 @@ public class HPValues : MonoBehaviour
         TurnSystem.OpponentIsVulnerable = false;
                 EnemyVulnerableText.enabled = false;
     }
-        
+    
+    public void calculatefireBall() {
+        TurnSystem.fireOn = true;
+        int playerDamageRec = AICards.fireBallValue;
+        if (TurnSystem.tickDamage > 0){
+            playerDamageRec += TurnSystem.tickDamage;
+        }
+
+        if (TurnSystem.totalDefend > 0) {
+           playerDamageRec -= TurnSystem.totalDefend;
+        }
+        if (playerDamageRec > -1) {
+                playerHP -= playerDamageRec;
+                playerHPNum.text = playerHP.ToString();
+            }
+    }
     
     // Update is called once per frame
     void Update()
