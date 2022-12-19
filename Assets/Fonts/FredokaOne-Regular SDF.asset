@@ -17,8 +17,7 @@ MonoBehaviour:
   materialHashCode: -792279406
   m_Version: 1.1.0
   m_SourceFontFileGUID: 1e418ca9c14167546b6357491fc91b5f
-  m_SourceFontFile_EditorRef: {fileID: 12800000, guid: 1e418ca9c14167546b6357491fc91b5f,
-    type: 3}
+  m_SourceFontFile_EditorRef: {fileID: 12800000, guid: 1e418ca9c14167546b6357491fc91b5f, type: 3}
   m_SourceFontFile: {fileID: 0}
   m_AtlasPopulationMode: 0
   m_FaceInfo:
@@ -2547,14 +2546,15 @@ Texture2D:
     path: 
 --- !u!21 &5648841424417533313
 Material:
-  serializedVersion: 6
+  serializedVersion: 8
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: FredokaOne-Regular SDF Material
   m_Shader: {fileID: 4800000, guid: 68e6db2ebdc24f95958faec2be5558d6, type: 3}
-  m_ShaderKeywords: UNDERLAY_ON
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -2640,7 +2640,7 @@ Material:
     m_Colors:
     - _ClipRect: {r: -32767, g: -32767, b: 32767, a: 32767}
     - _EnvMatrixRotation: {r: 0, g: 0, b: 0, a: 0}
-    - _FaceColor: {r: 1, g: 1, b: 1, a: 1}
+    - _FaceColor: {r: 0.9622642, g: 0.9622642, b: 0.9622642, a: 1}
     - _GlowColor: {r: 0, g: 1, b: 0, a: 0.5}
     - _MaskCoord: {r: 0, g: 0, b: 32767, a: 32767}
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
