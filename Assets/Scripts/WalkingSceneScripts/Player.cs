@@ -41,6 +41,16 @@ public class Player : MonoBehaviour
             Debug.Log("Made it to Wizard Conversation");
             FluentManager.Instance.ExecuteClosestAction(gameObject);
         }
+        else if (other.transform.parent.name == "DevilGhost" && DefeatManager.devilDefeat != true)
+        {
+            Debug.Log("Made it to Devil Conversation");
+            FluentManager.Instance.ExecuteClosestAction(gameObject);
+        }
+        else if (other.transform.parent.name == "CowboyGhost" && DefeatManager.cowboyDefeat != true)
+        {
+            Debug.Log("Made it to Cowboy Conversation");
+            FluentManager.Instance.ExecuteClosestAction(gameObject);
+        }
 
     } 
 }

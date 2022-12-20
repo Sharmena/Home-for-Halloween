@@ -140,7 +140,7 @@ namespace Fluent
            
             FluentScript closestGameAction = GetClosestAction(closestToWhat);
 
-            Debug.Log("closest Game Action is " + closestGameAction);
+            //Debug.Log("closest Game Action is " + closestGameAction);
 
             if (closestGameAction == null)
                 return;
