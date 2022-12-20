@@ -163,6 +163,8 @@ MonoBehaviour:
   BashValue: 0
   DefendValue: 0
   HealValue: 0
+  fireBall: 0
+  fireBallValue: 0
 --- !u!4 &5464359
 Transform:
   m_ObjectHideFlags: 0
@@ -3863,6 +3865,9 @@ MonoBehaviour:
   playerHasWon: 0
   opponentHasWon: 0
   currentMana: 3
+  fireOn: 0
+  turnCounter: 0
+  tickDamage: 0
   endTurnButton: {fileID: 969200649}
   endTutorialButton: {fileID: 1011916630}
   tutorialText: {fileID: 1978776717}
@@ -3871,6 +3876,7 @@ MonoBehaviour:
   gm: {fileID: 301529596}
   AICards: {fileID: 5464358}
   HPValues: {fileID: 1790522191}
+  sceneManager: {fileID: 0}
   SEBarImage: {fileID: 488406504}
   SEBar3: {fileID: 21300000, guid: b3210c2faeab74bb6847b5b42bbbc330, type: 3}
   SEBar2: {fileID: 21300000, guid: c93060a081abb418397001d9781dcb68, type: 3}
@@ -4646,8 +4652,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerHP: 30
   enemyHP: 60
-  playerMaxHP: 0
-  enemyMaxHP: 0
+  playerMaxHP: 30
+  enemyMaxHP: 60
+  turnCounter: 0
   playerHPNum: {fileID: 1215291272}
   enemyHPNum: {fileID: 1143802350}
   vulnerableText: {fileID: 2140924162}

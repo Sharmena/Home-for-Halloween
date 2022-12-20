@@ -91,7 +91,11 @@ public class HPValues : MonoBehaviour
 
         int healAmt = AICards.HealValue - TurnSystem.totalAttack;
         if (healAmt > -1) {
+            if(enemyHP >= enemyMaxHP - 10) {
+                enemyHP = enemyMaxHP;
+            }
             enemyHP += healAmt;
+            
         } else
             enemyHP -= TurnSystem.totalAttack - AICards.HealValue;
         enemyHPNum.text = enemyHP.ToString();
