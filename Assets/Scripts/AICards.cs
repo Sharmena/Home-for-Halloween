@@ -30,6 +30,7 @@ public class AICards : MonoBehaviour
        WizardEnemyMoves.Add("WizBash");
        WizardEnemyMoves.Add("WizDefend");
        WizardEnemyMoves.Add("WizHeal");
+       WizardEnemyMoves.Add("fireBall");
        ScarEnemyMoves.Add("Bash"); 
        ScarEnemyMoves.Add("Defend");
 
