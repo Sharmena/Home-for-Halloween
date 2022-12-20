@@ -9,6 +9,9 @@ public class DefeatManager : MonoBehaviour
     public static bool wizardDefeat;
     public static bool cowboyDefeat;
 
+    public static bool scarHasWon;
+    public static bool wizardHasWon;
+
     public static bool scarFollowing;
     public static bool devilFollowing;
     public static bool wizardFollowing;

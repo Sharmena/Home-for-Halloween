@@ -27,6 +27,7 @@ public class TurnSystem : MonoBehaviour
     public bool playerHasWon;
     public bool opponentHasWon;
 
+
     public int currentMana;
 
     public bool fireOn;
@@ -42,6 +43,7 @@ public class TurnSystem : MonoBehaviour
     public GameManager gm;
     public AICards AICards;
     public HPValues HPValues;
+    public sceneManager sceneManager;
     
     public Image SEBarImage;
   
@@ -75,6 +77,7 @@ public class TurnSystem : MonoBehaviour
        AICards = FindObjectOfType<AICards>();
        HPValues = FindObjectOfType<HPValues>();
        gm = FindObjectOfType<GameManager>();
+       sceneManager = FindObjectOfType<sceneManager>();
        
    
 
@@ -254,6 +257,7 @@ public class TurnSystem : MonoBehaviour
 
     public void playerWins() { 
         playerHasWon = true;
+
         SceneManager.LoadScene(sceneName:"NewCardScene");
 
         if (AICards.OpponentName == "Scar") {
@@ -272,7 +276,14 @@ public class TurnSystem : MonoBehaviour
 
     public void opponentWins() {
         opponentHasWon = true;
-        //TBA
+        if (AICards.OpponentName == "Scar") {
+            DefeatManager.scarHasWon = true;
+        } else if (AICards.OpponentName == "Wizard") {
+            DefeatManager.wizardHasWon = true;
+        }
+        SceneManager.LoadScene(sceneName:"GameoverScene");
     }
+
+    
 
 }
