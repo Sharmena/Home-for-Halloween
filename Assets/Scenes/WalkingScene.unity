@@ -4235,7 +4235,7 @@ Animator:
   m_GameObject: {fileID: 1091316957}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 63dc445fec86d844485efa4d08653a72, type: 2}
+  m_Controller: {fileID: 9100000, guid: fd6e887921df8164f9f30ef5b93899c8, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -4269,7 +4269,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1091316957}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.42, y: -0.82, z: 0.003057565}
+  m_LocalPosition: {x: 7.5, y: -0.82, z: 0.003057565}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5722,7 +5722,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scar: {fileID: 882442603}
-  wizard: {fileID: 0}
+  wizard: {fileID: 1091316957}
   devil: {fileID: 1450107161}
   cowboy: {fileID: 300512927}
 --- !u!4 &1607618752
