@@ -30,8 +30,15 @@ public class Player : MonoBehaviour
 
    private void OnTriggerEnter(Collider other)
     {
-        if (other.transform.parent.name == "ScarGhost" && DefeatManager.scarDefeat != true)
+        Debug.Log("Collision with " + other.transform.parent.name);
+
+        if ((other.transform.parent.name == "ScarGhost" && DefeatManager.scarDefeat != true))
         {
+            Debug.Log("Made it to Scar Conversation");
+            FluentManager.Instance.ExecuteClosestAction(gameObject);
+        } else if (other.transform.parent.name == "WizardGhost" && DefeatManager.wizardDefeat != true)
+        {
+            Debug.Log("Made it to Wizard Conversation");
             FluentManager.Instance.ExecuteClosestAction(gameObject);
         }
 
