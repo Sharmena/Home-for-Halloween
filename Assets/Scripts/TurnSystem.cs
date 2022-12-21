@@ -258,12 +258,15 @@ public class TurnSystem : MonoBehaviour
     public void playerWins() { 
         playerHasWon = true;
 
-        SceneManager.LoadScene(sceneName:"NewCardScene");
+        
 
         if (AICards.OpponentName == "Scar") {
             DefeatManager.scarDefeat = true;
+            SceneManager.LoadScene(sceneName: "NewCardScene");
         } else if (AICards.OpponentName == "Wizard") {
+
             DefeatManager.wizardDefeat = true;
+            SceneManager.LoadScene(sceneName: "EndScreen");
         }
         else if (AICards.OpponentName == "Cowboy") {
             DefeatManager.cowboyDefeat = true;

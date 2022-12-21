@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Deck System Wizard.unity
     guid: 164cbe05a6950470f965558e82aa9344
+  - enabled: 1
+    path: Assets/Scenes/EndScreen.unity
+    guid: 63a252b6687673a479f6005850a2d4b2
   m_configObjects: {}
