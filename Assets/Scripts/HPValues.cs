@@ -42,7 +42,7 @@ public class HPValues : MonoBehaviour
         enemyHP -= TurnSystem.totalAttack;
         
         if (TurnSystem.isBurning == true){
-            playerDamageRec += TurnSystem.burnDamage;
+            playerDamageRec = TurnSystem.burnDamage;
         }
         
         playerDamageRec += AICards.BashValue;
@@ -108,7 +108,7 @@ public class HPValues : MonoBehaviour
     
     public void calculatefireBall() {
         TurnSystem.ApplyBurn();
-        playerDamageRec += TurnSystem.burnDamage + AICards.fireBallValue; 
+        playerDamageRec = TurnSystem.burnDamage + AICards.fireBallValue; 
 
         if (TurnSystem.totalDefend > 0) {
            playerDamageRec -= TurnSystem.totalDefend;

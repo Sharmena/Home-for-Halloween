@@ -63,7 +63,7 @@ public class TurnSystem : MonoBehaviour
        isYourTurn = true;
        yourTurn = 1;
        opponentTurn = 0;
-       burnDamage = 2;
+       burnDamage = 0;
     
        playerHasWon = false;
        opponentHasWon = false;
@@ -143,7 +143,6 @@ public class TurnSystem : MonoBehaviour
         opponentTurn +=1;
         endTurnButton.SetActive(false);
         clearActionBox();
-
         if (AICards.OpponentName == "Scar") { 
             calculateDamageWithVulnerable();
             AICards.ScarPickMove();
@@ -159,6 +158,8 @@ public class TurnSystem : MonoBehaviour
           } else {
             //Devil TBA
           }
+        totalAttack = 0;
+        totalDefend = 0;
         if(isBurning) {
             burnDamage = 2;
             Debug.Log("Is burning: " + isBurning);
@@ -167,8 +168,6 @@ public class TurnSystem : MonoBehaviour
                 turnCounter = 0;
             }
         }
-        totalAttack = 0;
-        totalDefend = 0;
         playerSelectedVulnerable = false;
         //playerAnimation.enabled = false;
        // opponentAnimation.enabled = true;      
