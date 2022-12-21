@@ -30,9 +30,9 @@ public class TurnSystem : MonoBehaviour
 
     public int currentMana;
 
-    public bool fireOn;
+    public bool isBurning;
     public int turnCounter;
-    public int tickDamage;
+    public int burnDamage;
 
     public GameObject endTurnButton;
 
@@ -63,9 +63,8 @@ public class TurnSystem : MonoBehaviour
        isYourTurn = true;
        yourTurn = 1;
        opponentTurn = 0;
-       turnCounter = 0;
+       burnDamage = 2;
     
-       fireOn = false;
        playerHasWon = false;
        opponentHasWon = false;
 
@@ -79,11 +78,12 @@ public class TurnSystem : MonoBehaviour
        gm = FindObjectOfType<GameManager>();
        sceneManager = FindObjectOfType<sceneManager>();
        
-   
+    }
 
-
-
-		
+    public void ApplyBurn(){
+        turnCounter = 0;
+        
+        isBurning = true;
     }
 
     // Update is called once per frame
@@ -138,25 +138,11 @@ public class TurnSystem : MonoBehaviour
         blockValueText.text = ("");
     }
 
-    public void fireDamage(){
-        while(fireOn == true)
-        {
-            tickDamage = 2;
-            turnCounter++;
-        }
-        if(turnCounter == 3){
-        turnCounter = 0;
-        tickDamage = 0;
-        fireOn = false;
-        }
-    }
-
     public void EndYourTurn(){
         isYourTurn = false;
         opponentTurn +=1;
         endTurnButton.SetActive(false);
         clearActionBox();
-        
 
         if (AICards.OpponentName == "Scar") { 
             calculateDamageWithVulnerable();
@@ -173,13 +159,20 @@ public class TurnSystem : MonoBehaviour
           } else {
             //Devil TBA
           }
+        if(isBurning) {
+            burnDamage = 2;
+            Debug.Log("Is burning: " + isBurning);
+            if (turnCounter >= 3) {
+                isBurning = false;
+                turnCounter = 0;
+            }
+        }
         totalAttack = 0;
         totalDefend = 0;
         playerSelectedVulnerable = false;
         //playerAnimation.enabled = false;
        // opponentAnimation.enabled = true;      
         Invoke(nameof(EndOpponentTurn), 3);
-        Invoke(nameof(fireDamage), 1);
        
     }
 

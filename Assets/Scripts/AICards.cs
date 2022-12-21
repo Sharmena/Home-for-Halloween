@@ -105,7 +105,7 @@ public class AICards : MonoBehaviour
 
             case "fireBall":
             enemyMoveText.color = Color.red;
-            enemyMoveText.text = "Attack: 15HP + Burn: 2HP for 3 turns";
+            enemyMoveText.text = "Attack: 15 HP + Burn";
             Defend = false;
             Heal = false;
             Bash = false;
