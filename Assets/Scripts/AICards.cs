@@ -30,7 +30,7 @@ public class AICards : MonoBehaviour
        WizardEnemyMoves.Add("WizBash");
        WizardEnemyMoves.Add("WizDefend");
        WizardEnemyMoves.Add("WizHeal");
-       WizardEnemyMoves.Add("fireBall");
+
        ScarEnemyMoves.Add("Bash"); 
        ScarEnemyMoves.Add("Defend");
 
@@ -103,14 +103,7 @@ public class AICards : MonoBehaviour
             Heal = true;
                 break;   
 
-            case "fireBall":
-            enemyMoveText.color = Color.red;
-            enemyMoveText.text = "Attack: 15 HP + Burn";
-            Defend = false;
-            Heal = false;
-            Bash = false;
-            fireBall = true;
-                break; 
+  
         }
     }
 

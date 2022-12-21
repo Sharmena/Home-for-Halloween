@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using UnityEngine.SceneManagement;
 
 public class HPValues : MonoBehaviour
 {
@@ -10,8 +9,6 @@ public class HPValues : MonoBehaviour
     public int enemyHP;
     public int playerMaxHP;
     public int enemyMaxHP;
-    public int turnCounter;
-    public int playerDamageRec = 0;
     public TextMeshProUGUI playerHPNum;
     public TextMeshProUGUI enemyHPNum;
     public TextMeshProUGUI vulnerableText;
@@ -39,13 +36,9 @@ public class HPValues : MonoBehaviour
         if (TurnSystem.OpponentIsVulnerable == true) { 
             TurnSystem.totalAttack = (int)(TurnSystem.totalAttack * 1.5);
         }
+        
         enemyHP -= TurnSystem.totalAttack;
-        
-        if (TurnSystem.isBurning == true){
-            playerDamageRec = TurnSystem.burnDamage;
-        }
-        
-        playerDamageRec += AICards.BashValue;
+        int playerDamageRec = AICards.BashValue;
         if (TurnSystem.PlayerIsVulnerable == true) {
             playerDamageRec = (int)(playerDamageRec * 1.5);
         }
@@ -94,10 +87,13 @@ public class HPValues : MonoBehaviour
         int healAmt = AICards.HealValue - TurnSystem.totalAttack;
         if (healAmt > -1) {
             if(enemyHP >= enemyMaxHP - 10) {
+                 enemyHP = enemyMaxHP;
+             }
+            enemyHP += healAmt;
+            if(enemyHP > enemyMaxHP) {
                 enemyHP = enemyMaxHP;
             }
-            enemyHP += healAmt;
-            
+
         } else
             enemyHP -= TurnSystem.totalAttack - AICards.HealValue;
         enemyHPNum.text = enemyHP.ToString();
@@ -105,19 +101,7 @@ public class HPValues : MonoBehaviour
         TurnSystem.OpponentIsVulnerable = false;
                 EnemyVulnerableText.enabled = false;
     }
-    
-    public void calculatefireBall() {
-        TurnSystem.ApplyBurn();
-        playerDamageRec = TurnSystem.burnDamage + AICards.fireBallValue; 
-
-        if (TurnSystem.totalDefend > 0) {
-           playerDamageRec -= TurnSystem.totalDefend;
-        }
-        if (playerDamageRec > -1) {
-                playerHP -= playerDamageRec;
-                playerHPNum.text = playerHP.ToString();
-            }
-    }
+        
     
     // Update is called once per frame
     void Update()
@@ -132,4 +116,3 @@ public class HPValues : MonoBehaviour
     }
 }
 }
-

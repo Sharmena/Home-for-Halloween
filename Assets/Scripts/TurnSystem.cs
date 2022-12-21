@@ -20,6 +20,7 @@ public class TurnSystem : MonoBehaviour
     public int maxMana;
     public int totalAttack;
     public int totalDefend;
+
     public Animator playerAnimation;
     public Animator opponentAnimation;
 
@@ -27,12 +28,7 @@ public class TurnSystem : MonoBehaviour
     public bool playerHasWon;
     public bool opponentHasWon;
 
-
     public int currentMana;
-
-    public bool isBurning;
-    public int turnCounter;
-    public int burnDamage;
 
     public GameObject endTurnButton;
 
@@ -43,7 +39,6 @@ public class TurnSystem : MonoBehaviour
     public GameManager gm;
     public AICards AICards;
     public HPValues HPValues;
-    public sceneManager sceneManager;
     
     public Image SEBarImage;
   
@@ -63,27 +58,26 @@ public class TurnSystem : MonoBehaviour
        isYourTurn = true;
        yourTurn = 1;
        opponentTurn = 0;
-       burnDamage = 0;
+
     
+
        playerHasWon = false;
        opponentHasWon = false;
 
-       playerAnimation.enabled = true;
-       opponentAnimation.enabled = false;
+      // playerAnimation.enabled = true;
+      // opponentAnimation.enabled = false;
 
        maxMana = 3;
        currentMana = 3; 
        AICards = FindObjectOfType<AICards>();
        HPValues = FindObjectOfType<HPValues>();
        gm = FindObjectOfType<GameManager>();
-       sceneManager = FindObjectOfType<sceneManager>();
        
-    }
+   
 
-    public void ApplyBurn(){
-        turnCounter = 0;
-        
-        isBurning = true;
+
+
+		
     }
 
     // Update is called once per frame
@@ -143,6 +137,8 @@ public class TurnSystem : MonoBehaviour
         opponentTurn +=1;
         endTurnButton.SetActive(false);
         clearActionBox();
+        
+
         if (AICards.OpponentName == "Scar") { 
             calculateDamageWithVulnerable();
             AICards.ScarPickMove();
@@ -150,24 +146,12 @@ public class TurnSystem : MonoBehaviour
                     PlayerIsVulnerable = false;
                     HPValues.vulnerableText.enabled = false;
                 }
-          }  else if (AICards.OpponentName == "Wizard") {
+          }  else {
           WizCalculateDamage();
           AICards.WizardPickMove();
-          } else if (AICards.OpponentName == "Devil") {
-            //TBA
-          } else {
-            //Devil TBA
           }
         totalAttack = 0;
         totalDefend = 0;
-        if(isBurning) {
-            burnDamage = 2;
-            Debug.Log("Is burning: " + isBurning);
-            if (turnCounter >= 3) {
-                isBurning = false;
-                turnCounter = 0;
-            }
-        }
         playerSelectedVulnerable = false;
         //playerAnimation.enabled = false;
        // opponentAnimation.enabled = true;      
@@ -195,8 +179,6 @@ public class TurnSystem : MonoBehaviour
             HPValues.calculateDefend(); //calculate damage applied if AI defend
         } else if (AICards.Heal == true) { //calculate damage applied if AI heal
             HPValues.calculateHeal();
-        } else if (AICards.fireBall == true) {
-            HPValues.calculatefireBall(); //calculate damage applied when fireball
         }
         if (playerSelectedVulnerable == true) {
             OpponentIsVulnerable = true;
@@ -215,8 +197,8 @@ public class TurnSystem : MonoBehaviour
         updateSEBar();
         gm.Shuffle();
         gm.DrawMaxCards();
-        playerAnimation.enabled = true;
-        opponentAnimation.enabled = false;    
+      //  playerAnimation.enabled = true;
+      //  opponentAnimation.enabled = false;    
         Debug.Log("IS vulernable: " + PlayerIsVulnerable);
     }
 
@@ -249,36 +231,30 @@ public class TurnSystem : MonoBehaviour
 
     public void playerWins() { 
         playerHasWon = true;
-
-        
-
         if (AICards.OpponentName == "Scar") {
-            DefeatManager.scarDefeat = true;
-            SceneManager.LoadScene(sceneName: "NewCardScene");
-        } else if (AICards.OpponentName == "Wizard") {
+             DefeatManager.scarDefeat = true;
+             SceneManager.LoadScene(sceneName: "NewCardScene");
+         } else if (AICards.OpponentName == "Wizard") {
 
-            DefeatManager.wizardDefeat = true;
-            SceneManager.LoadScene(sceneName: "EndScreen");
-        }
-        else if (AICards.OpponentName == "Cowboy") {
-            DefeatManager.cowboyDefeat = true;
+             DefeatManager.wizardDefeat = true;
+             SceneManager.LoadScene(sceneName: "EndScreen");
+         }
+         else if (AICards.OpponentName == "Cowboy") {
+             DefeatManager.cowboyDefeat = true;
         }
         else {
             DefeatManager.devilDefeat = true;
         }
-
     }
 
     public void opponentWins() {
         opponentHasWon = true;
         if (AICards.OpponentName == "Scar") {
-            DefeatManager.scarHasWon = true;
-        } else if (AICards.OpponentName == "Wizard") {
-            DefeatManager.wizardHasWon = true;
-        }
-        SceneManager.LoadScene(sceneName:"GameoverScene");
+             DefeatManager.scarHasWon = true;
+         } else if (AICards.OpponentName == "Wizard") {
+             DefeatManager.wizardHasWon = true;
+         }
+         SceneManager.LoadScene(sceneName:"GameoverScene");
     }
-
-    
 
 }
